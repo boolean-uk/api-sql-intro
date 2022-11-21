@@ -79,3 +79,9 @@ ON a.director = b.name
 
 select director, COUNT(title) as total_movie FROM films 
 GROUP BY director
+
+-- Only films that have a director
+
+select director, COUNT(title) as total_movie FROM films 
+GROUP BY director
+HAVING director IS NOT NULL
