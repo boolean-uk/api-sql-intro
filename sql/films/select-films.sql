@@ -66,3 +66,5 @@ SELECT COUNT(*) AS TotalFilms FROM films
 SELECT genre, AVG(score) AS AverageScore FROM films 
 GROUP BY genre
 ORDER BY AverageScore DESC
+
+
