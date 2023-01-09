@@ -6,3 +6,4 @@ CREATE TABLE products(
  unique(name)
 )
 
+
