@@ -16,3 +16,19 @@ WHERE score >= 8
 -- All films with a rating of 7 or lower
 SELECT * FROM films
 WHERE score <= 7
+
+-- films released in 1990
+SELECT * FROM films
+WHERE release_year = 1990
+
+-- films released before 2000
+SELECT * FROM films
+WHERE release_year < 2000
+
+-- films released after 1990
+SELECT * FROM films
+WHERE release_year > 1990
+
+-- films released between 1990 and 1999
+SELECT * FROM films
+WHERE release_year BETWEEN 1990 AND 1999
