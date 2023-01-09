@@ -54,3 +54,15 @@ AND release < 2000
 -- films that have the world "Matrix" in their title
 SELECT * FROM films
 WHERE title LIKE '%Matrix%'
+
+-- -- Extension 1
+-- Return the average film rating
+SELECT AVG(score) AS AverageScore FROM films
+
+-- Return the total number of films
+SELECT COUNT(*) AS TotalFilms FROM films
+
+-- Return the average film rating by genre
+SELECT genre, AVG(score) AS AverageScore FROM films 
+GROUP BY genre
+ORDER BY AverageScore DESC
