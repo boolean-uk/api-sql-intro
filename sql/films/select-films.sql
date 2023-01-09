@@ -55,7 +55,7 @@ AND release < 2000
 SELECT * FROM films
 WHERE title LIKE '%Matrix%'
 
--- -- Extension 1
+-- -- Extension 1 -----------------------------------------------
 -- Return the average film rating
 SELECT AVG(score) AS AverageScore FROM films
 
@@ -67,4 +67,7 @@ SELECT genre, AVG(score) AS AverageScore FROM films
 GROUP BY genre
 ORDER BY AverageScore DESC
 
-
+-- -- Extension 2  -----------------------------------------------
+SELECT films.title AS film_title, directors.name AS director_name FROM films
+INNER JOIN directors ON directors.id = films.director_id
+ORDER BY director_name
