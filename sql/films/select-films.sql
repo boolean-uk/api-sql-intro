@@ -71,3 +71,11 @@ ORDER BY AverageScore DESC
 SELECT films.title AS film_title, directors.name AS director_name FROM films
 INNER JOIN directors ON directors.id = films.director_id
 ORDER BY director_name
+
+-- -- Extension 3 ------------------------------------------------
+
+-- Write a SQL SELECT statement that returns a lists of directors along with the number of films they have directed
+SELECT COUNT(films.id) AS total_films, directors.name AS director_name FROM films
+INNER JOIN directors ON directors.id = films.director_id
+GROUP BY directors.name
+ORDER BY total_films DESC
