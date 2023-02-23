@@ -1,6 +1,6 @@
 INSERT INTO films (title, genre, release_year, score)
 Values ('The Shawshank Redemption', 'Drama', 1994, 9)
-INSERT INTO films (title, genre, release_year, score)
+INSERT INTO films (title, genre, release_year, score);
 VALUES ('The Godfather', 'Crime', 1972, 9),
  ('The Dark Knight', 'Action', 2008, 9),
  ('Alien', 'SciFi', 1979, 9),
