@@ -1,6 +1,6 @@
 INSERT INTO films (title, genre, release_year, score)
-Values ('The Shawshank Redemption', 'Drama', 1994, 9)
-INSERT INTO films (title, genre, release_year, score);
+Values ('The Shawshank Redemption', 'Drama', 1994, 9);
+INSERT INTO films (title, genre, release_year, score)
 VALUES ('The Godfather', 'Crime', 1972, 9),
  ('The Dark Knight', 'Action', 2008, 9),
  ('Alien', 'SciFi', 1979, 9),
@@ -13,4 +13,4 @@ VALUES ('The Godfather', 'Crime', 1972, 9),
 ('The Power Of The Dog', 'Western', 2021, 6),
 ('Hell or High Water', 'Western', 2016, 8),
 ('The Good the Bad and the Ugly', 'Western', 1966, 9),
-('Unforgiven', 'Western', 1992, 7)
+('Unforgiven', 'Western', 1992, 7);
