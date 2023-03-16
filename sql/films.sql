@@ -39,16 +39,49 @@ SELECT * FROM films
 ORDER BY score DESC;
 
 -- All films ordered by release year ascending
--- All films with a rating of 8 or higher
--- All films with a rating of 7 or lower
--- films released in 1990
--- films released before 2000
--- films released after 1990
--- films released between 1990 and 1999
--- films with the genre of "SciFi"
--- films with the genre of "Western" or "SciFi"
--- films with any genre apart from "SciFi"
--- films with the genre of "Western" released before 2000
--- films that have the world "Matrix" in their title
+SELECT * FROM films
+ORDER BY release_year ASC;
 
--- For the last query, you will need to research the `LIKE` keyword in postgres.
+-- All films with a rating of 8 or higher
+SELECT * FROM films
+WHERE score >= 8;
+
+-- All films with a rating of 7 or lower
+SELECT * FROM films
+WHERE score <= 7;
+
+-- films released in 1990
+SELECT * FROM films
+WHERE release_year = 1990;
+
+-- films released before 2000
+SELECT * FROM films
+WHERE release_year < 2000;
+
+-- films released after 1990
+SELECT * FROM films
+WHERE release_year > 1990;
+
+-- films released between 1990 and 1999
+SELECT * FROM films
+WHERE release_year BETWEEN 1990 AND 1999;
+
+-- films with the genre of "SciFi"
+SELECT * FROM films
+WHERE genre = 'SciFi';
+
+-- films with the genre of "Western" or "SciFi"
+SELECT * FROM films
+WHERE genre = 'Western' OR genre = 'SciFi';
+
+-- films with any genre apart from "SciFi"
+SELECT * FROM films
+WHERE genre != 'SciFi';
+
+-- films with the genre of "Western" released before 2000
+SELECT * FROM films
+WHERE genre = 'Western' AND release_year < 2000;
+
+-- films that have the word "Matrix" in their title
+SELECT * FROM films
+WHERE title LIKE '%Matrix%';
