@@ -5,4 +5,4 @@ CREATE TABLE films (
     release_year INTEGER NOT NULL,
     score INTEGER DEFAULT 0,
     UNIQUE(title)
-)
+);

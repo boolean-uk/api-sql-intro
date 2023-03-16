@@ -13,4 +13,4 @@ VALUES
 ('The Power Of The Dog', 'Western', 2021, 6),
 ('Hell or High Water', 'Western', 2016, 8),
 ('The Good the Bad and the Ugly', 'Western', 1966, 9),
-('Unforgiven', 'Western', 1992, 7)
+('Unforgiven', 'Western', 1992, 7);
