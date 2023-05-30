@@ -52,3 +52,9 @@ select * from films where release_year < 2000 and genre like 'Western';
 
 select * from films where title like '%Matrix%';
 
+select avg(score) from films;
+
+select COUNT(id) from films;
+
+select genre, avg(score) as score from films group by genre;
+
