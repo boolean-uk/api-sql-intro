@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTSfilms(
+CREATE TABLE IF NOT EXISTS films(
     id serial primary key,
     title varchar(60) not null,
     genre varchar(60) not null,
