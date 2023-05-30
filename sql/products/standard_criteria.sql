@@ -36,3 +36,19 @@ select * from films where score <= 7;
 select * from films where release_year = 1990;
 
 select * from films where release_year < 2000;
+
+select * from films where release_year > 1990;
+
+select * from films where release_year between 1990 and 1999;
+
+select * from films where genre = 'SciFi';
+
+select * from films where genre = 'SciFi' OR genre = 'Western';
+select * from films where genre in ('SciFi', 'Western');
+
+select * from films where genre not like 'SciFi';
+
+select * from films where release_year < 2000 and genre like 'Western';
+
+select * from films where title like '%Matrix%';
+
