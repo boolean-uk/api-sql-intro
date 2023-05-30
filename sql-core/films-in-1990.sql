@@ -3,4 +3,4 @@ select
 from
     films
 where
-    score >= 8;
+    release_year = 1990;
