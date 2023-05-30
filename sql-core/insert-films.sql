@@ -1,8 +1,8 @@
 insert into
     films(title, genre, release_year, score)
 values
-    (
-        (
+    
+       (
             'The Shawshank Redemption',
             'Drama',
             1994,
@@ -31,4 +31,4 @@ values
             9
         ),
         ('Unforgiven', 'Western', 1992, 7)
-    );
+    ;
