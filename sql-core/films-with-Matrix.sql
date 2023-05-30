@@ -3,4 +3,4 @@ select
 from
     films
 where
-    title like "%Matrix%";
+    title like '%Matrix%';
