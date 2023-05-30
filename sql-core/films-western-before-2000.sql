@@ -3,5 +3,5 @@ select
 from
     films
 where
-    genre = "Western"
+    genre = 'Western'
     and release_year < 2000;

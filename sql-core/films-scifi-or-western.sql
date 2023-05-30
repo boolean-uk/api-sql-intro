@@ -3,5 +3,5 @@ select
 from
     films
 where
-    genre = "SciFi"
-    or "Western";
+    genre = 'SciFi'
+    or genre='Western';
