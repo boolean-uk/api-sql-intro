@@ -1,4 +1,4 @@
 select
     avg(score)
 from
-    films
+    films;
