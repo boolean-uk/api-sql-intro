@@ -1,43 +1,30 @@
 extension 2
 
-create table if not exists directors (
-id serial primary key,
-name varchar(50)
-);
-
-insert into directors (name)
+insert into films
+(title, director_id, genre, release_year, score)
 values
-('Steven Spielberg'),
-('Martin Scorsese'),
-('Ridley Scott'),
-('John Woo');
+('The Shawshank Redemption',1, 'Drama', 1994, 9),
+('The Godfather', 2, 'Crime', 1972, 9),
+('The Dark Knight', 1, 'Action', 2008, 9),
+('Alien', 2, 'SciFi', 1979, 9),
+('Total Recall', 1, 'SciFi', 1990, 8),
+('The Matrix', 2, 'SciFi', 1999, 8),
+('The Matrix Resurrections', 1, 'SciFi', 2021, 5),
+('The Matrix Reloaded', 2, 'SciFi', 2003, 6),
+('The Hunt for Red October', 1, 'Thriller', 1990, 7),
+('Misery', 2, 'Thriller', 1990, 7),
+('The Power Of The Dog', 1, 'Western', 2021, 6),
+('Hell or High Water', 2, 'Western', 2016, 8),
+('The Good the Bad and the Ugly', 1, 'Western', 1966, 9),
+('Unforgiven', 2, 'Western', 1992, 7);
 
-ALTER TABLE films
-ADD directorId integer;
+insert into director
+	(name)
+VALUES
+	('Pokemon Fan'),
+	('Rose Breedveld');
 
-update films set directorId = 1 where id = 1;
-
-insert into films (id, directorId)
-values
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 3),
-(6, 2),
-(7, 4),
-(8, 1),
-(9, 2),
-(10, 3),
-(11, 4),
-(12, 3),
-(13, 2),
-(14,4);
-
---select *, directors.name
---from films
---inner join directors on films.directorId = directors.id;
-
---select films.title, directors.name
---from films
---inner join directors on films.directorId = directors.id;
+SELECT title, director.name
+from films
+JOIN director
+ON films.director_id = director.id;
