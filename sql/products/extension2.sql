@@ -1,4 +1,19 @@
-extension 2
+create table if not exists films (
+    id serial primary key,
+    title varchar(50) unique,
+    genre varchar(50),
+    release_year integer,
+    score integer,
+	director_id integer,
+	constraint fk_director
+		foreign key (director_id)
+			references director(id)
+);
+
+create table if not exists director (
+    id serial primary key,
+    name text not null
+);
 
 insert into films
 (title, director_id, genre, release_year, score)
