@@ -5,3 +5,5 @@ SELECT ROUND(AVG(score), 2) from films;
 SELECT COUNT(title) from films;
 
 --Return the average film rating by genre
+select avg(score), genre from films
+group by genre
