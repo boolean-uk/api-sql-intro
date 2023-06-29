@@ -34,3 +34,7 @@ UPDATE films SET directorId = 12 WHERE id = 14;
 
 SELECT films.title, directors.name FROM films
 INNER JOIN directors ON directors.id = films.directorId;
+
+-- EXT 3
+
+SELECT name, (SELECT COUNT(directorId) FROM films WHERE directorId = directors.id) FROM directors;
