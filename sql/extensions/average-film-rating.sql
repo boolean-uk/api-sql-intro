@@ -1,0 +1,1 @@
+SELECT ROUND(AVG(score), 2) from films;
