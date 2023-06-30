@@ -64,3 +64,6 @@ WHERE genre = 'Western' AND release_year < 2000
 
 --
 
+SELECT *
+FROM films
+WHERE title LIKE '%Matrix%'
