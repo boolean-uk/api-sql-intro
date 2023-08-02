@@ -63,3 +63,6 @@ ON updatedfilms.directorid = directors.id
 
 -- EXTENSION 3
 
+-- SQL SELECT statement that returns a lists of directors with the number of films they have directed.
+
+-- Not sure on how to do it
