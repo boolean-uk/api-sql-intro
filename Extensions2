@@ -1,0 +1,101 @@
+------------------------Extension 2----------------------------------
+-- create directors table
+/*
+CREATE TABLE directors (
+    director_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL
+);
+*/
+
+/*
+--Insert names in to director table
+INSERT INTO directors (name) VALUES
+('director1'),
+('director2'),
+('director3'),
+('director4'),
+('director5'),
+('director6'),
+('director7'),
+('director8'),
+('director9'),
+('director10'),
+('director11'),
+('director12'),
+('director13'),
+('director14');
+*/
+
+--check if directors are in director table
+--SELECT * FROM directors;
+
+
+-- recreate the original films table but for adding directorid
+/*
+CREATE TABLE filmswithdirectorid (
+    film_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) UNIQUE NOT NULL,
+    genre VARCHAR(50) NOT NULL,
+    release_year INTEGER NOT NULL,
+    score INTEGER CHECK (score BETWEEN 0 AND 10));
+*/
+
+--next insert original values in the new table
+/*
+INSERT INTO filmswithdirectorid(title, genre, release_year, score) VALUES
+('The Shawshank Redemption', 'Drama', 1994, 9),
+('The Godfather', 'Crime', 1972, 9),
+('The Dark Knight', 'Action', 2008, 9),
+('Alien', 'SciFi', 1979, 9),
+('Total Recall', 'SciFi', 1990, 8),
+('The Matrix', 'SciFi', 1999, 8),
+('The Matrix Resurrections', 'SciFi', 2021, 5),
+('The Matrix Reloaded', 'SciFi', 2003, 6),
+('The Hunt for Red October', 'Thriller', 1990, 7),
+('Misery', 'Thriller', 1990, 7),
+('The Power Of The Dog', 'Western', 2021, 6),
+('Hell or High Water', 'Western', 2016, 8),
+('The Good the Bad and the Ugly', 'Western', 1966, 9),
+('Unforgiven', 'Western', 1992, 7);
+*/
+
+--adding a director_id colum to filmswithdirectorid
+--ALTER TABLE filmswithdirectorid ADD COLUMN director_id INTEGER REFERENCES directors(director_id);
+
+-- next we need to update the filmswithdirectorid table with for each film a director, use case for adding them all at the same time
+/*
+UPDATE filmswithdirectorid 
+SET director_id = 
+    CASE 
+        WHEN title = 'The Shawshank Redemption' THEN 1
+        WHEN title = 'The Godfather' THEN 2
+        WHEN title = 'The Dark Knight' THEN 3
+        WHEN title = 'Alien' THEN 4
+        WHEN title = 'Total Recall' THEN 5
+        WHEN title = 'The Matrix' THEN 6
+        WHEN title = 'The Matrix Resurrections' THEN 7
+        WHEN title = 'The Matrix Reloaded' THEN 8
+        WHEN title = 'The Hunt for Red October' THEN 9
+        WHEN title = 'Misery' THEN 10
+        WHEN title = 'The Power Of The Dog' THEN 11
+        WHEN title = 'Hell or High Water' THEN 12
+        WHEN title = 'The Good the Bad and the Ugly' THEN 13
+        WHEN title = 'Unforgiven' THEN 14
+    END;
+*/   
+--SELECT * FROM filmswithdirectorid;
+
+/*
+SELECT filmswithdirectorid.title, directors.name AS director_name 
+FROM filmswithdirectorid 
+JOIN directors ON filmswithdirectorid.director_id = directors.director_id;
+*/
+
+--SELECT * FROM filmswithdirectorid;
+
+/*
+--returning a list of films with their directors
+SELECT filmswithdirectorid.title, directors.name AS director_name 
+FROM filmswithdirectorid 
+JOIN directors ON filmswithdirectorid.director_id = directors.director_id;
+/*
