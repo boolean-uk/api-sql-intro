@@ -1,0 +1,17 @@
+SELECT directors.name AS director_name,
+(SELECT COUNT(*)
+FROM films
+WHERE films.directorId = directors.directorId) AS number_of_films_directed
+FROM directors
+ORDER BY number_of_films_directed ASC;
+
+//Result
+
+director_name	    number_of_films_directed
+Steve Spielberg 	1
+Sofia Coppola	    1
+Quentin Tarantino	1
+David Fincher	    2
+Pedro Almodovar	    3
+Christopher Nolan	3
+Wes Anderson	    3

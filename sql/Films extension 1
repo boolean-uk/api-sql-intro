@@ -1,0 +1,26 @@
+Extension 1
+
+Write a SQL SELECT statements to:
+
+//Return the average film rating
+SELECT AVG(score) FROM films;
+avg
+0.76428571428571429e1
+
+
+//Return the total number of films
+SELECT COUNT(title) FROM films;
+count
+14
+
+
+//Return the average film rating by genre
+SELECT genre, AVG(score) FROM films GROUP BY genre;
+
+genre		avg
+Thriller	0.7e1
+Western		0.75e1
+Crime		0.9e1
+Drama		0.9e1
+Action		0.9e1
+SciFi		0.72e1

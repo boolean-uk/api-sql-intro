@@ -1,0 +1,64 @@
+CREATE TABLE IF NOT EXISTS directors (
+    directorId SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+INSERT INTO directors (name)
+VALUES
+   ('Steve Spielberg'),
+   ('Christopher Nolan'),
+   ('Quentin Tarantino'),
+   ('David Fincher'),
+   ('Pedro Almodovar'),
+   ('Sofia Coppola'),
+   ('Wes Anderson');
+
+CREATE TABLE IF NOT EXISTS films (
+    id SERIAL PRIMARY KEY,
+    title TEXT unique NOT NULL,
+    genre TEXT,
+    release_year INTEGER,
+    score INTEGER,
+    directorId INTEGER NOT NULL,
+    FOREIGN KEY (directorId) REFERENCES directors(directorId)
+);
+
+INSERT INTO films
+(title, genre, release_year, score, directorId)
+VALUES
+('The Shawshank Redemption', 'Drama', 1994, 9, 1),
+('The Godfather', 'Crime', 1972, 9, 2),
+('The Dark Knight', 'Action', 2008, 9, 5),
+('Alien', 'SciFi', 1979, 9, 7),
+('Total Recall', 'SciFi', 1990, 8, 13),
+('The Matrix', 'SciFi', 1999, 8, 10),
+('The Matrix Resurrections', 'SciFi', 2021, 5, 6),
+('The Matrix Reloaded', 'SciFi', 2003, 6, 9),
+('The Hunt for Red October', 'Thriller', 1990, 7, 11),
+('Misery', 'Thriller', 1990, 7, 14),
+('The Power Of The Dog', 'Western', 2021, 6, 3),
+('Hell or High Water', 'Western', 2016, 8, 8),
+('The Good the Bad and the Ugly', 'Western', 1966, 9, 4),
+('Unforgiven', 'Western', 1992, 7, 12);
+
+SELECT films.title AS "Film Title", directors.name AS "Director"
+FROM films
+INNER JOIN directors ON films.directorId = directors.directorId;
+
+
+//Result
+title	name
+The Shawshank Redemption	    Steve Spielberg
+The Godfather	                Christopher Nolan
+The Dark Knight	                Pedro Almodovar
+Alien	                        Wes Anderson
+Total Recall	                Sofia Coppola
+The Matrix	                    David Fincher
+The Matrix Resurrections	    Quentin Tarantino
+The Matrix Reloaded	            Christopher Nolan
+The Hunt for Red October	    Pedro Almodovar
+Misery	                        Wes Anderson
+The Power Of The Dog	        Christopher Nolan
+Hell or High Water	            David Fincher
+The Good the Bad and the Ugly	Wes Anderson
+Unforgiven	                    Pedro Almodovar
