@@ -120,11 +120,9 @@ SELECT AVG(score)
 FROM films
 WHERE genre = 'Thriller';
 
---Create a new directors table. Each director should have a name and a unique director id.
---Recreate your films table and add a directorId column.
---Insert a few director records (the data does not need to be real,
---you can just make directors up). Re-insert your film data, updating each film with have a directorId.
---Using a SQL JOIN, write a SELECT statement that returns a list of films with their director.
+------------------------
+-- EXTENSION TWO
+------------------------
 
 
 --CREATING DIRECTORS TABLE
