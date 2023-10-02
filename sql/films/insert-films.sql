@@ -1,0 +1,15 @@
+INSERT INTO films (title, director_id, genre, release_year, score) VALUES
+                                                          ('The Shawshank Redemption', 1,  'Drama', 1994, 9),
+                                                          ('The Godfather', 2, 'Crime', 1972, 9),
+                                                          ('The Dark Knight', 3, 'Action', 2008, 9),
+                                                          ('Alien', 4, 'SciFi', 1979, 9),
+                                                          ('Total Recall', 1, 'SciFi', 1990, 8),
+                                                          ('The Matrix', 5, 'SciFi', 1999, 8),
+                                                          ('The Matrix Resurrections', 2, 'SciFi', 2021, 5),
+                                                          ('The Matrix Reloaded', 1, 'SciFi', 2003, 60),
+                                                          ('The Hunt for Red October', 6, 'Thriller', 1990, 7),
+                                                          ('Misery', 7, 'Thriller', 1990, 7),
+                                                          ('The Power Of The Dog', 3, 'Western', 2021, 6),
+                                                          ('Hell or High Water', 8, 'Western', 2016, 8),
+                                                          ('The Good the Bad and the Ugly', 9,  'Western', 1966, 9),
+                                                          ('Unforgiven', 2, 'Western', 1992, 7)
