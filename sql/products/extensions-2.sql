@@ -1,5 +1,6 @@
-ALTER TABLE films
-ADD director_id INT;
+-- Added director_id from before
+-- ALTER TABLE films
+-- ADD director_id INT;
 
 CREATE TABLE directors (
   id SERIAL PRIMARY KEY,
