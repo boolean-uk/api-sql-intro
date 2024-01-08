@@ -1,0 +1,1 @@
+select * from vw_movies_and_directors;
