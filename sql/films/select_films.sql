@@ -40,3 +40,13 @@ WHERE genre = 'Western' AND year < 2000
 -- films that have the world "Matrix" in their title
 SELECT * FROM films
 WHERE title LIKE '%Matrix%'
+
+-- EXTENSION 1
+
+-- Return the average film rating
+SELECT CAST(AVG(score) AS FLOAT) FROM films
+-- Return the total number of films
+SELECT COUNT(*) FROM films
+-- Return the average film rating by genre
+SELECT CAST(AVG(score) AS FLOAT), genre FROM films
+GROUP BY genre
