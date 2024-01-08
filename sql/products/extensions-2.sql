@@ -21,3 +21,5 @@ INSERT INTO directors (name)
   ('Sergio Leone'),
   ('Clint Eastwood');
 
+SELECT title, name from films 
+JOIN directors ON directors.id = films.director_id;
