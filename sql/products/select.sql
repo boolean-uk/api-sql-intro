@@ -1,3 +1,5 @@
+--you can run it one by one commenting the rest
+
 --All films
 SELECT * FROM films;
 
