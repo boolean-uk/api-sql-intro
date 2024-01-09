@@ -1,0 +1,1 @@
+SELECT films.title, directors.name FROM films INNER JOIN directors ON directors.id = films.directorId
