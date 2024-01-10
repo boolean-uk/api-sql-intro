@@ -3,5 +3,5 @@ CREATE TABLE films(
  title varchar(255) UNIQUE,
  genre varchar(50),
  release_year int,
- score int check (score >= 0 AND <= 10)
+ score int check(score BETWEEN 0 AND 10)
 )
