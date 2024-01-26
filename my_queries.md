@@ -57,7 +57,7 @@
 ### EXTENSION 1
 1. Return the average film rating:
    
-   SELECT AVG(score) FROM films;
+   SELECT CAST(ROUND(AVG(score), 2) AS FLOAT) AS integer_average FROM films;
 
 2. Return the total number of films:
    
@@ -65,7 +65,7 @@
    
 3. Return the average film rating by genre:
    
-   SELECT genre, AVG(score) FROM films GROUP BY genre;
+   SELECT genre, CAST(ROUND(AVG(score), 2) AS FLOAT) AS avg_score FROM films GROUP BY genre;
 
 ### EXTENSION 2
 1. join query with a list of directors and films:
