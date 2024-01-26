@@ -66,30 +66,33 @@ WHERE genre = 'SciFi'
 SELECT * FROM films
 WHERE genre = 'SciFi' OR genre = 'Western'
 
-* films with any genre *apart* from "SciFi"
+- films with any genre *apart* from "SciFi"
+
 SELECT * FROM films
 WHERE genre NOT LIKE 'SciFi'
 
-* films with the genre of "Western" released before 2000
+-films with the genre of "Western" released before 2000
+
 SELECT * FROM films
 WHERE genre = 'Western' 
 AND release_year < 2000
 
-* films that have the world "Matrix" in their title
+-films that have the world "Matrix" in their title
+
 SELECT * FROM films
 WHERE title LIKE '%Matrix%'
 
 
 ## Extension 1
-* Return the average film rating
+-Return the average film rating
 SELECT AVG(score)
 FROM films
 
-* Return the total number of films
+-Return the total number of films
 SELECT COUNT(title)
 FROM films
 
-* Return the average film rating by genre
+-Return the average film rating by genre
 SELECT genre, AVG(score) AS avg_rating
 FROM films 
 GROUP BY genre;
@@ -163,6 +166,7 @@ FROM films
 JOIN directors ON films.director_id = directors.director_id;
 
 ## Extension 3
+
 SELECT directors.name AS directors,
 COUNT(films.id) AS number_of_films FROM directors
 LEFT JOIN films ON directors.director_id = films.director_id
