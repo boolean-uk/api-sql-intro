@@ -1,0 +1,31 @@
+EXTENSION 1
+----------------------
+-- Return the average film rating
+SELECT AVG(score) FROM films
+
+-- Return the total number of films
+SELECT COUNT(*) FROM films
+
+-- Return the average film rating by genre
+SELECT AVG(score), genre FROM films GROUP BY genre
+
+
+EXTENSION 2
+----------------------
+CREATE TABLE directors(
+id SERIAL PRIMARY KEY, 
+name VARCHAR
+);
+
+INSERT INTO directors(name) VALUES ('Kaz Brekker'), ('Grover Underwood'), ('Francis Janvier'), ('Julia Spoelstra');
+ALTER TABLE films ADD director_id INT REFERENCES directors(id)
+UPDATE films SET director_id = 1 WHERE id < 4;
+UPDATE films SET director_id = 2 WHERE id < 8 AND id > 3;
+UPDATE films SET director_id = 3 WHERE id < 12 AND id > 7;
+UPDATE films SET director_id = 4 WHERE id >= 12;
+
+SELECT * FROM directors JOIN films ON films.director_id = directors.id ORDER BY films.id
+
+EXTENSION 3
+--------------------
+SELECT directors.name, COUNT(*) FROM films JOIN directors ON films.director_id = directors.id GROUP BY directors.name
