@@ -38,9 +38,9 @@
 --SELECT * FROM films WHERE title LIKE '%Matrix%';
 
 --EXTENSIONS 1
---SELECT ROUND(AVG(score), 2) as avg_score FROM films;
+--SELECT CAST(AVG(score)::numeric(10,2) as FLOAT) as avg_score FROM films;
 --SELECT COUNT(id) FROM films;
---SELECT genre, AVG(score) as avg_score FROM films GROUP BY genre;
+--SELECT genre, CAST(AVG(score)::numeric(10,2) as FLOAT) as avg_score FROM films GROUP BY genre;
 
 --EXTENSIONS 2
 --CREATE TABLE directors (
