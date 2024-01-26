@@ -1,0 +1,135 @@
+CREATE TABLE films (
+id SERIAL PRIMARY KEY,
+title VARCHAR(40) UNIQUE NOT NULL,
+genre VARCHAR(40),
+release_year SMALLINT,
+score_of_10 SMALLINT
+);
+
+INSERT INTO films (title, genre, release_year, score_of_10) VALUES
+('The Shawshank Redemption', 'Drama', 1994, 9),
+('The Godfather', 'Crime', 1972, 9),
+('The Dark Knight', 'Action', 2008, 9),
+('Alien', 'SciFi', 1979, 9),
+('Total Recall', 'SciFi', 1990, 8),
+('The Matrix', 'SciFi', 1999, 8),
+('The Matrix Resurrections', 'SciFi', 2021, 5),
+('The Matrix Reloaded', 'SciFi', 2003, 6),
+('The Hunt for Red October', 'Thriller', 1990, 7),
+('Misery', 'Thriller', 1990, 7),
+('The Power Of The Dog', 'Western', 2021, 6),
+('Hell or High Water', 'Western', 2016, 8),
+('The Good, the Bad and the Ugly', 'Western', 1966, 9),
+('Unforgiven', 'Western', 1992, 7);
+
+1.
+SELECT * FROM films;
+
+2.
+SELECT * FROM films
+ORDER BY score_of_10 DESC;
+
+3.
+SELECT * FROM films
+ORDER BY release_year ASC;
+
+4.
+SELECT * FROM films
+WHERE score_of_10 >= 8;
+
+5.
+SELECT * FROM films
+WHERE score_of_10 <= 7;
+
+6.
+SELECT * FROM films
+WHERE release_year = 1990;
+
+7.
+SELECT * FROM films
+WHERE release_year <= 2000;
+
+8.
+SELECT * FROM films
+WHERE release_year > 1990;
+
+9.
+SELECT * FROM films
+WHERE release_year >= 1990
+AND release_year <= 1999;
+
+10.
+SELECT * FROM films
+WHERE genre = 'SciFi';
+
+11.
+SELECT * FROM films
+WHERE (genre = 'SciFi')
+OR (genre = 'Western');
+
+12.
+SELECT * FROM films
+WHERE genre != 'SciFi';
+
+13.
+SELECT * FROM films
+WHERE genre = 'Western'
+AND release_year < 2000;
+
+14.
+SELECT * FROM films
+WHERE title LIKE '%Matrix%';
+
+
+EXTENSION1
+
+SELECT AVG(score_of_10)
+AS average_rate
+FROM films;
+
+SELECT COUNT(*) 
+AS number_of_films
+FROM films;
+
+SELECT genre,
+AVG(score_of_10) 
+AS average_rate
+FROM films
+GROUP BY genre;
+
+EXTENSION2
+
+CREATE TABLE directors (
+id SERIAL PRIMARY KEY,
+name VARCHAR(40));
+
+INSERT INTO directors(name) VALUES
+('patrik'),
+('gordon'),
+('marko');
+
+ALTER TABLE films
+ADD COLUMN directorsid SMALLINT;
+
+UPDATE films
+SET directorsid = 1
+WHERE genre = 'SciFi';
+
+UPDATE films
+SET directorsid = 2
+WHERE genre = 'Action';
+
+SELECT films.*, directors.name
+FROM films
+JOIN directors ON films.directorsid = directors.id
+WHERE films.directorsID IS NOT NULL;
+
+EXTENSION3:
+
+SELECT directors.name, COUNT(films.directorsid)
+AS num_of_movies
+FROM directors
+LEFT JOIN films ON directors.id = films.directorsid
+GROUP BY directors.id, directors.name;
+
+
