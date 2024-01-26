@@ -22,7 +22,7 @@ INSERT INTO films (title, genre, release_year, score) VALUES ('The Shawshank Red
 ('Unforgiven', 'Western', 1992, 7)
 
 
-## Standard Criteria
+# Standard Criteria
 - All films
 
 SELECT * FROM films
@@ -94,21 +94,24 @@ SELECT * FROM films
 WHERE title LIKE '%Matrix%'
 
 
-## Extension 1
--Return the average film rating
+# Extension 1
+- Return the average film rating
+
 SELECT AVG(score)
 FROM films
 
--Return the total number of films
+- Return the total number of films
+
 SELECT COUNT(title)
 FROM films
 
--Return the average film rating by genre
+- Return the average film rating by genre
+
 SELECT genre, AVG(score) AS avg_rating
 FROM films 
 GROUP BY genre;
 
-## Extension 2
+# Extension 2
 CREATE TABLE directors (
   director_id SERIAL PRIMARY KEY,
 	name VARCHAR(20) UNIQUE NOT NULL
@@ -176,7 +179,7 @@ SELECT films.title, directors.name AS director
 FROM films
 JOIN directors ON films.director_id = directors.director_id;
 
-## Extension 3
+# Extension 3
 
 SELECT directors.name AS directors,
 COUNT(films.id) AS number_of_films FROM directors
