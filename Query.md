@@ -95,3 +95,76 @@ FROM films
 GROUP BY genre;
 
 ## Extension 2
+CREATE TABLE directors (
+  director_id SERIAL PRIMARY KEY,
+	name VARCHAR(20) UNIQUE NOT NULL
+);
+
+INSERT INTO directors (name) VALUES
+('Christopher Nolan'),
+('Quentin Tarantino'),
+('Ridley Scott'),
+('David Fincher');
+
+ALTER TABLE films
+ADD COLUMN director_id INT;
+
+UPDATE films
+SET director_id = 1
+WHERE title = 'The Shawshank Redemption';
+
+UPDATE films
+SET director_id = 3
+WHERE title = 'The Godfather';
+
+UPDATE films
+SET director_id = 2
+WHERE title = 'The Dark Knight';
+
+UPDATE films
+SET director_id = 1
+WHERE title = 'Alien';
+
+UPDATE films
+SET director_id = 1
+WHERE title = 'Total Recall';
+
+UPDATE films
+SET director_id = 2
+WHERE title 
+LIKE '%Matrix%';
+
+UPDATE films
+SET director_id = 4
+WHERE title = 'The Hunt for Red October';
+
+UPDATE films
+SET director_id = 4
+WHERE title = 'Misery';
+
+UPDATE films
+SET director_id = 3
+WHERE title = 'The Power Of The Dog';
+
+UPDATE films
+SET director_id = 3
+WHERE title = 'Hell or High Water';
+
+UPDATE films
+SET director_id = 4
+WHERE title = 'The Good the Bad and the Ugly';
+
+UPDATE films
+SET director_id = 1
+WHERE title = 'Unforgiven';
+
+SELECT films.title, directors.name AS director
+FROM films
+JOIN directors ON films.director_id = directors.director_id;
+
+## Extension 3
+SELECT directors.name AS directors,
+COUNT(films.id) AS number_of_films FROM directors
+LEFT JOIN films ON directors.director_id = films.director_id
+GROUP BY directors.name;
+
