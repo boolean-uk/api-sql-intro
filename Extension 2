@@ -1,0 +1,45 @@
+
+--Extension 2:
+
+/*
+Create a new `directors` table. Each director should have a name and a unique director id. Recreate your films table and add a `directorId` column. Insert a few director records (the data does not need to be real, you can just make directors up). Re-insert your film data, updating each film with have a `directorId`. Using a SQL `JOIN`, write a SELECT statement that returns a list of films with their director.
+*/
+-- create
+CREATE TABLE directors (
+  id SERIAL PRIMARY KEY,
+  name varchar(255) NOT NULL UNIQUE,
+);
+
+CREATE TABLE films (
+  id SERIAL PRIMARY KEY,
+  title varchar(255) NOT NULL UNIQUE,
+  genre varchar(30),
+  release_year integer, 
+  score integer,
+  directorId integer references directors(id);
+);
+
+-- insert values
+
+INSERT INTO directors (name)  
+VALUES ('John Adams'),('Alexander Hamilton'),('Walt Disney'),('Bob Heartly');
+
+INSERT INTO films (title, genre, release_year, score, directorId)  
+VALUES ('The Shawshank Redemption', 'Drama', 1994, 9, 2),
+('The Godfather', 'Crime', 1972, 9, 2),
+('The Dark Knight', 'Action', 2008, 9, 3),
+('Alien', 'SciFi', 1979, 9, 1),
+('Total Recall', 'SciFi', 1990, 8, 2),
+('The Matrix', 'SciFi', 1999, 8, 3),
+('The Matrix Resurrections', 'SciFi', 2021, 5, 4),
+('The Matrix Reloaded', 'SciFi', 2003, 6, 1),
+('The Hunt for Red October', 'Thriller', 1990, 7, 2),
+('Misery', 'Thriller', 1990, 7, 1),
+('The Power Of The Dog', 'Western', 2021, 6, 4),
+('Hell or High Water', 'Western', 2016, 8, 3),
+('The Good the Bad and the Ugly', 'Western', 1966, 9, 2),
+('Unforgiven', 'Western', 1992, 7, 4);
+
+
+--fetch
+SELECT films.id,title,genre, release_year,score,directors.name FROM films JOIN directors ON directorId = directors.id;
