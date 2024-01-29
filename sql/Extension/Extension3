@@ -1,0 +1,1 @@
+SELECT count(directorid), directors.name FROM films inner join directors on films.directorid = directors.id group by directors.name;
