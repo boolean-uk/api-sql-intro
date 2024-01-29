@@ -12,4 +12,5 @@ FROM films
 SELECT genre, Round(AVG(score), 2)
 FROM films
 GROUP BY (genre)
+ORDER BY AVG(score) DESC
 ;

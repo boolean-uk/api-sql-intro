@@ -33,7 +33,7 @@ CREATE TABLE films_ex2 (
 	release_year integer NOT NULL,
 	score integer CHECK(score >= 0 AND score <= 10) NOT NULL,
 	directorId integer,
-	CONSTRAINT fk_film 
+	CONSTRAINT fk_directorId 
 		FOREIGN KEY(directorId)
 			REFERENCES directors(directorId)
 );
