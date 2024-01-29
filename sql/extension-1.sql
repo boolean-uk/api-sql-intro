@@ -1,5 +1,5 @@
-SELECT AVG(score) FROM films
+SELECT AVG(score) FROM films;
 
-SELECT COUNT(*) FROM films
+SELECT COUNT(*) FROM films;
 
-SELECT AVG(score) FROM films GROUP BY genre
+SELECT genre, AVG(score) FROM films GROUP BY genre;

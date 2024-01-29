@@ -4,4 +4,4 @@ CREATE TABLE films(
 	genre varchar(50),
 	release_year integer,
 	score integer
-)
+);
