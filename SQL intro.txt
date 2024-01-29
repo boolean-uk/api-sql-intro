@@ -1,0 +1,101 @@
+DROP TABLE IF EXISTS films;
+CREATE TABLE films(
+	id serial PRIMARY KEY,
+	title varchar(150),
+	genre varchar(30),
+	release_year integer,
+	score integer
+);
+
+INSERT INTO films (title, genre, release_year, score) VALUES 
+	('The Shawshank Redemption', 'Drama', 1994, 9),
+	('The Godfather', 'Crime', 1972, 9),
+	('The Dark Knight', 'Action', 2008, 9),
+	('Alien', 'SciFi', 1979, 9),
+	('Total Recall', 'SciFi', 1990, 8),
+	('The Matrix', 'SciFi', 1999, 8),
+	('The Matrix Resurrections', 'SciFi', 2021, 5),
+	('The Matrix Reloaded', 'SciFi', 2003, 6),
+	('The Hunt for Red October', 'Thriller', 1990, 7),
+	('Misery', 'Thriller', 1990, 7),
+	('The Power Of The Dog', 'Western', 2021, 6),
+	('Hell or High Water', 'Western', 2016, 8),
+	('Unforgiven', 'Western', 1992, 7);
+
+
+SELECT * FROM films;
+SELECT * FROM films ORDER BY films.score DESC;
+SELECT * FROM films ORDER BY films.release_year ASC;
+SELECT * FROM films WHERE films.score >= 8;
+SELECT * FROM films WHERE films.score < 8;
+SELECT * FROM films WHERE films.release_year = 1990;
+SELECT * FROM films WHERE films.release_year < 2000;
+SELECT * FROM films WHERE films.release_year >= 1990 AND films.release_year < 1999;
+SELECT * FROM films WHERE films.genre = 'Western' OR films.genre = 'SciFi';
+SELECT * FROM films WHERE films.genre <> 'SciFi';
+SELECT * FROM films WHERE films.genre = 'Western' AND films.release_year < 2000;
+SELECT * FROM films WHERE films.title LIKE '%Matrix%';
+
+
+-- EXTENSION 1
+SELECT AVG(score) FROM films;
+SELECT COUNT(id) FROM films;
+SELECT (genre, AVG(score)) FROM films GROUP BY films.genre;
+
+
+-- EXTENSION 2
+DROP TABLE IF EXISTS directors;
+CREATE TABLE directors(
+	directorId serial primary key,
+	name varchar(150)
+);
+
+
+INSERT INTO directors (name) VALUES
+	( 'Jim' ),
+	( 'Jake' ),
+	( 'Paul' ),
+	( 'Jack' ),
+	( 'Stan' ),
+	( 'Lily' ),
+	( 'Molly' ),
+	( 'Claire' ),
+	( 'Jackson' );
+
+DROP TABLE IF EXISTS films;
+CREATE TABLE films(
+	id serial PRIMARY KEY,
+	title varchar(150),
+	genre varchar(30),
+	release_year integer,
+	score integer,
+	directorId integer,
+	FOREIGN KEY (directorId) REFERENCES directors(directorID)
+);
+
+
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES 
+	('The Shawshank Redemption', 'Drama', 1994, 9, 1),
+	('The Godfather', 'Crime', 1972, 9, 1),
+	('The Dark Knight', 'Action', 2008, 9, 3),
+	('Alien', 'SciFi', 1979, 9, 4),
+	('Total Recall', 'SciFi', 1990, 8, 2),
+	('The Matrix', 'SciFi', 1999, 8, 5),
+	('The Matrix Resurrections', 'SciFi', 2021, 5, 6),
+	('The Matrix Reloaded', 'SciFi', 2003, 6, 7),
+	('The Hunt for Red October', 'Thriller', 1990, 7, 3),
+	('Misery', 'Thriller', 1990, 7, 8),
+	('The Power Of The Dog', 'Western', 2021, 6, 1),
+	('Hell or High Water', 'Western', 2016, 8, 2),
+	('Unforgiven', 'Western', 1992, 7, 2);
+
+SELECT * FROM films;
+
+SELECT * FROM films
+LEFT JOIN directors ON films.directorID = directors.directorID;
+
+-- EXTENSION 3
+SELECT directors.name, COUNT(films.directorID)
+FROM directors
+LEFT JOIN films ON directors.directorID = films.directorID
+GROUP BY directors.directorID, directors.name;
