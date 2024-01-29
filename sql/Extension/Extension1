@@ -1,0 +1,6 @@
+SELECT AVG(score) FROM films; 
+
+select COUNT(films) FROM films;
+
+SELECT AVG(score) FROM films where genre like '%SciFi%';
+SELECT AVG(score) FROM films where genre like '%Western%';
