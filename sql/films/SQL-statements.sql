@@ -1,58 +1,58 @@
 -- All films
 
-SELECT * FROM films
+SELECT * FROM films;
 
 -- All films ordered by rating descending
 
-SELECT * FROM films ORDER BY release_year DESC
+SELECT * FROM films ORDER BY release_year DESC;
 
 -- All films ordered by release year ascending
 
-SELECT * FROM films ORDER BY release_year ASC
+SELECT * FROM films ORDER BY release_year ASC;
 
 -- All films with a rating of 8 or higher
 
-SELECT * FROM films WHERE score >= 8
+SELECT * FROM films WHERE score >= 8;
 
 -- All films with a rating of 7 or lower
 
-SELECT * FROM films WHERE score <= 7
+SELECT * FROM films WHERE score <= 7;
 
 -- films released in 1990
 
-SELECT * FROM films WHERE release_year = 1990
+SELECT * FROM films WHERE release_year = 1990;
 
 -- films released before 2000
 
-SELECT * FROM films WHERE release_year < 2000
+SELECT * FROM films WHERE release_year < 2000;
 
 -- films released after 1990
 
-SELECT * FROM films WHERE release_year > 1990
+SELECT * FROM films WHERE release_year > 1990;
 
 -- films released between 1990 and 1999
 
-SELECT * FROM films WHERE release_year > 1990 AND 1999 > release_year
+SELECT * FROM films WHERE release_year > 1990 AND 1999 > release_year;
 
 -- films with the genre of "SciFi"
 
-SELECT * FROM films WHERE genre LIKE 'SciFi'
+SELECT * FROM films WHERE genre LIKE 'SciFi';
 
 -- films with the genre of "Western" or "SciFi"
 
-SELECT * FROM films WHERE genre IN ('SciFi', 'Western')
+SELECT * FROM films WHERE genre IN ('SciFi', 'Western');
 
 -- films with any genre apart from "SciFi"
 
-SELECT * FROM films WHERE genre NOT LIKE 'SciFi'
+SELECT * FROM films WHERE genre NOT LIKE 'SciFi';
 
 -- films with the genre of "Western" released before 2000
 
-SELECT * FROM films WHERE genre LIKE 'Western' AND release_year < 2000
+SELECT * FROM films WHERE genre LIKE 'Western' AND release_year < 2000;
 
 -- films that have the world "Matrix" in their title
 
-SELECT * FROM films WHERE title LIKE '%Matrix%'
+SELECT * FROM films WHERE title LIKE '%Matrix%';
 
 
 
@@ -61,15 +61,15 @@ SELECT * FROM films WHERE title LIKE '%Matrix%'
 
 -- Return the average film rating
 
-SELECT AVG(score) FROM films
+SELECT AVG(score) FROM films;
 
 -- Return the total number of films
 
-SELECT COUNT(id) FROM films
+SELECT COUNT(id) FROM films;
 
 -- Return the average film rating by genre
 
-SELECT AVG(score), genre FROM films GROUP BY genre
+SELECT AVG(score), genre FROM films GROUP BY genre;
 
 
 -- Extension 2
@@ -83,7 +83,7 @@ SELECT AVG(score), genre FROM films GROUP BY genre
 CREATE TABLE directors(
  id serial primary key,
  name varchar(255) not null
-)
+);
 
 insert into directors (name) VALUES 
     ('Quentin Tarantino'), 
@@ -100,7 +100,7 @@ CREATE TABLE films(
  release_year int not null,
  score int not null, 
  foreign key(director_id) REFERENCES directors(id)
-)
+);
 
 INSERT INTO films (director_id, title, genre, release_year, score) VALUES 
     ((SELECT id FROM directors WHERE name LIKE 'Quentin Tarantino'), 'Pulp Fiction', 'crime', 1994, 9), 
@@ -124,7 +124,7 @@ insert into films(director_id, title, genre, release_year, score) VALUES (1, 'Th
 insert into films(director_id, title, genre, release_year, score) VALUES (2, 'Unforgiven', 'Western', 1992, 7);
 
 
-SELECT title, directors.name FROM films JOIN directors ON directors.id = director_id
+SELECT title, directors.name FROM films JOIN directors ON directors.id = director_id;
 
 -- Write a SQL SELECT statement that returns a lists of directors along with the number of films they have directed.
 
