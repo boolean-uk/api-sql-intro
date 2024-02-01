@@ -6,5 +6,14 @@ CREATE TABLE IF NOT EXISTS director (
 
 INSERT INTO director (name) VALUES 
     ('Christopher Nolan'),
-    ('Quentin Tarantino'),
-    ('Steven Spielberg');
+    ('Frank Darabont'),
+    ('Francis Ford Coppola'),
+    ('Ridley Scott'),
+    ('Paul Verhoeven'),
+    ('The Wachowskis'),
+    ('John McTiernan'),
+    ('Rob Reiner'),
+    ('Jane Campion'),
+    ('David Mackenzie'),
+    ('Sergio Leone'),
+    ('Clint Eastwood');

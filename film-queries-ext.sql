@@ -12,11 +12,11 @@ SELECT genre, AVG(score) AS average_rating FROM film
 -- EXTENSION 2
 -- See film-schema.sql for the updated table and director-schema.sql for the new table of directors
 -- returns a list of films with their director.
-SELECT title, genre, release_year, score, name AS director FROM film
+SELECT film.title, film.genre, film.release_year, film.score, director.name AS director FROM film
     JOIN director ON film.director_id = director.id;
 
 -- EXTENSION 3
 -- returns a lists of directors along with the number of films they have directed.
-SELECT name, COUNT(*) AS number_of_movies FROM director
+SELECT director.name, COUNT(*) AS number_of_movies FROM director
     JOIN film ON director.id = film.director_id
-    GROUP BY name;
+    GROUP BY director.name;

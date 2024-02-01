@@ -29,18 +29,18 @@ ALTER TABLE film
 
 UPDATE film
     SET director_id = CASE
-        WHEN title = 'The Shawshank Redemption' THEN 1
-        WHEN title = 'The Godfather' THEN 2
-        WHEN title = 'The Dark Knight' THEN 1
-        WHEN title = 'Alien' THEN 3
-        WHEN title = 'Total Recall' THEN 3
-        WHEN title = 'The Matrix' THEN 3
-        WHEN title = 'The Matrix Resurrections' THEN 1
-        WHEN title = 'The Matrix Reloaded' THEN 1
-        WHEN title = 'The Hunt for Red October' THEN 2
-        WHEN title = 'Misery' THEN 1
-        WHEN title = 'The Power Of The Dog' THEN 3
-        WHEN title = 'Hell or High Water' THEN 2
-        WHEN title = 'The Good the Bad and the Ugly' THEN 1
-        WHEN title = 'Unforgiven' THEN 3
+        WHEN id = 1 THEN 2
+        WHEN id = 2 THEN 3
+        WHEN id = 3 THEN 1
+        WHEN id = 4 THEN 4
+        WHEN id = 5 THEN 5
+        WHEN id = 6 THEN 6
+        WHEN id = 7 THEN 6
+        WHEN id = 8 THEN 6
+        WHEN id = 9 THEN 7
+        WHEN id = 10 THEN 8
+        WHEN id = 11 THEN 9
+        WHEN id = 12 THEN 10
+        WHEN id = 13 THEN 11
+        WHEN id = 14 THEN 12
     END;
