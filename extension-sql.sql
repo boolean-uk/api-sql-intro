@@ -1,3 +1,19 @@
+--EXTENSION
+
+--Return the average film rating
+
+SELECT AVG(score_out_of_10) AS AverageScore
+FROM films;
+
+--Return the total number of films
+SELECT COUNT(*) AS TotalMovies
+FROM films;
+
+--Return the average film rating by genre
+SELECT genre, Round(AVG(score_out_of_10),2)  AS average_rating
+FROM films
+GROUP BY genre;
+
 --Create Directors Table
 
 CREATE TABLE directors (
