@@ -40,7 +40,7 @@ VALUES
 
 
 -- Return a list of films with their director
-SELECT films.title, directors.name
+SELECT films.title, directors.name AS director_name
 FROM films
 INNER JOIN directors
 	on films.director_id = directors.id;
