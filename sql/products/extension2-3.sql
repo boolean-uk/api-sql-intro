@@ -44,7 +44,7 @@ VALUES
 	('Unforgiven', 1, 'Western', 1992, 7);
 
 
-select films.title as film_title, directors.name as director_name from films inner join directors on directors.director_id = films.id;
+select films.title as film_title, directors.name as director_name from films inner join directors on directors.director_id = films.director_id;
 
 
 
