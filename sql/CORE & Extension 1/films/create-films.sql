@@ -4,4 +4,4 @@ CREATE TABLE films(
     genre TEXT NOT NULL,
     year INT NOT NULL,
     rating INT NOT NULL
-)
+);
