@@ -40,3 +40,13 @@ AND year < 2000;
 
 SELECT * FROM films
 WHERE title LIKE '%Matrix%';
+
+SELECT AVG(score) AS average FROM films;
+
+SELECT COUNT(*) AS total FROM films;
+
+SELECT genre, AVG(score) AS average
+FROM films
+GROUP BY genre;
+
+
