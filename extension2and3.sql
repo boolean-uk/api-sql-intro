@@ -1,17 +1,20 @@
-CREATE TABLE IF NOT EXISTS directors (
-	director_id SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Directors (
+	id SERIAL PRIMARY KEY,
 	director_name TEXT NOT NULL,
 	UNIQUE (director_name)
 );
 
-CREATE TABLE IF NOT EXISTS films (
-	film_id SERIAL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Films (
+	id SERIAL PRIMARY KEY,
 	title TEXT NOT NULL,
 	genre TEXT NOT NULL,
 	release_year INT NOT NULL,
 	score INT NOT NULL CHECK (score BETWEEN 1 and 10),
-	director_id INT NOT NULL REFERENCES directors(director_id),
-	UNIQUE (title)
+	director_id INT NOT NULL,
+  	CONSTRAINT fk_director
+	    FOREIGN KEY(director_id)
+  		REFERENCES Directors(id),
+  UNIQUE (title)
 );
 
 
@@ -44,6 +47,6 @@ VALUES
 	('Unforgiven', 'Western', 1992, 7, 3);
 
 
-SELECT title, genre, release_year, score, director_name FROM films INNER JOIN directors ON films.director_id = directors.director_id;
+SELECT title, genre, release_year, score, director_name FROM Films INNER JOIN Directors ON Films.director_id = Directors.id;
 
-SELECT director_name, COUNT(films.director_id) FROM films INNER JOIN directors ON films.director_id = directors.director_id GROUP BY director_name ORDER BY count DESC;
+SELECT director_name, COUNT(Films.director_id) FROM Films INNER JOIN Directors ON Films.director_id = Directors.id GROUP BY director_name ORDER BY count DESC;
