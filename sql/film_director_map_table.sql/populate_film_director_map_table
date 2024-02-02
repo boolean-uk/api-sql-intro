@@ -1,0 +1,16 @@
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Shawshank Redemption', 'Frank Darabont', 2, 1);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Godfather', 'Francis Ford Coppola', 3, 2);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Dark Knight', 'Christopher Nolan', 4, 3);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('Alien', 'Ridley Scott', 5, 4);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('Total Recall', 'Paul Verhoeven', 6, 5);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Matrix', 'Lilly Wachowski', 7, 6);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Matrix', 'Lana Wachowski', 7, 7);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Matrix Resurrections', 'Lana Wachowski', 8, 7);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Matrix Reloaded', 'Lilly Wachowski', 9, 6);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Matrix Reloaded', 'Lana Wachowski', 9, 7);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Hunt for Red October', 'John McTiernan', 10, 8);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('Misery', 'Rob Reiner', 11, 9);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Power Of The Dog', 'Jane Campion', 12, 10);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('Hell or High Water', 'David Mackenzie', 13, 11);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('The Good the Bad and the Ugly', 'Sergio Leone', 14, 12);
+INSERT INTO film_director_map (film_name, director_name, fk_film_id, fk_director_id) VALUES ('Unforgiven', 'Clint Eastwood', 15, 13);
