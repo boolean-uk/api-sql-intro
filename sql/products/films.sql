@@ -59,3 +59,15 @@ select * from films where genre != 'SciFi';
 select * from films where genre = 'Western' and release_year < 2000;
 
 select * from films where title LIKE '%Matrix%';
+
+-- Extension 1
+
+select AVG(score) as average_rating from films;
+
+select ROUND(AVG(score), 1) as rounded_average_rating from films;
+
+select COUNT(*) from films;
+
+SELECT genre, avg(score) as average_genre_rating from films group by genre;
+
+SELECT genre, ROUND(AVG(score), 1) as rounded_genre_rating from films group by genre;
