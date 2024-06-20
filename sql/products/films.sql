@@ -97,3 +97,16 @@ SELECT *
 FROM films 
 WHERE title LIKE '%Matrix%'
 
+-- EXTENSION 1
+-- return the average film rating
+SELECT AVG(score) AS average_rating -- or ROUND(AVG(score))
+FROM films
+
+-- return the total number of films
+SELECT COUNT(*) AS total_films
+FROM films
+
+-- return the average film rating by genre
+SELECT ROUND(AVG(score)) AS avg_rating_by_genre
+FROM films
+GROUP BY genre;
