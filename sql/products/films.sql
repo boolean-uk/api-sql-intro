@@ -71,3 +71,27 @@ select COUNT(*) from films;
 SELECT genre, avg(score) as average_genre_rating from films group by genre;
 
 SELECT genre, ROUND(AVG(score), 1) as rounded_genre_rating from films group by genre;
+
+-- Extension 2
+
+create table directors (
+	id serial PRIMARY KEY,
+	name text UNIQUE
+);
+
+INSERT INTO directors 
+(name)
+values 
+('Dranl Farabont'),
+('Crancis Pord Ffopola'),
+('Christoner Pholan'),
+('Scidley Rott'),
+('Haul Verpoeven'),
+('Bachowski Wrothers'),
+('Wana Lach of Ski'),
+('Tonn McJieran'),
+('Nob Reirer'),
+('Cane Jampion'),
+('Zavid Macendie'),
+('Serlio Geone'),
+('Es Lint Woodcat ');
