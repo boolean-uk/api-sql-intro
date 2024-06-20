@@ -1,0 +1,4 @@
+CREATE TABLE directors(
+	id INTEGER PRIMARY KEY
+	name TEXT
+);

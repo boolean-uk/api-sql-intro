@@ -62,3 +62,16 @@ SELECT COUNT(*) FROM films;
 -- THE AVERAGE FILM RATING BY GENRE
 SELECT genre, AVG(score) FROM films
 GROUP BY genre;
+
+-- ALL FILMS WITH THEIR DIRECTORS
+SELECT title AS film, name AS director
+FROM films
+JOIN directors
+ON films.directorid = directors.id;
+
+-- ALL DIRECTORS AND THE NUMBER OF FILMS THEY HAVE DIRECTED
+SELECT name AS director, COUNT(*) AS films 
+FROM films
+JOIN directors
+ON films.directorid = directors.id
+GROUP BY name;
