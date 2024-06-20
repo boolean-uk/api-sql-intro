@@ -123,3 +123,10 @@ SELECT title, name from films
 	on films.directorid = directors.id
 order by films.id asc;
 
+
+-- Extension 3
+
+SELECT name, COUNT(films.id) from directors
+	join films
+	on directors.id = films.directorid
+	group by name;
