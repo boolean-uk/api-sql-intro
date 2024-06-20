@@ -1,3 +1,4 @@
+-- Core
 CREATE TABLE films(
  id serial primary key,
  title TEXT UNIQUE,
@@ -39,10 +40,12 @@ SELECT * FROM films WHERE genre != 'SciFi';
 SELECT * FROM films WHERE genre = 'Western' AND release_year < 2000;
 SELECT * FROM films WHERE title LIKE '%Matrix%';
 
+-- Extension 1
 SELECT AVG(rating) FROM films;
 SELECT COUNT(*) FROM films;
 SELECT genre, AVG(rating) FROM films GROUP BY genre;
 
+-- Extension 2
 CREATE TABLE directors(
  id serial primary key,
  name TEXT
@@ -92,3 +95,6 @@ VALUES
 COMMIT;
 
 SELECT * FROM films INNER JOIN directors ON films.director_id = directors.id;
+
+-- Extension 3
+SELECT name, COUNT(title) as movie_count FROM directors INNER JOIN films ON directors.id = films.director_id GROUP BY name;
