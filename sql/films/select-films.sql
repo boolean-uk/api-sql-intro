@@ -52,3 +52,13 @@ WHERE genre = 'Western' AND release_year < 2000;
 -- ALL MATRIX FILMS
 SELECT * FROM films
 WHERE title LIKE '%Matrix%';
+
+-- THE AVERAGE FILM RATING
+SELECT AVG(score) FROM films;
+
+-- THE TOTAL NUMBER OF FILMS
+SELECT COUNT(*) FROM films;
+
+-- THE AVERAGE FILM RATING BY GENRE
+SELECT genre, AVG(score) FROM films
+GROUP BY genre;
