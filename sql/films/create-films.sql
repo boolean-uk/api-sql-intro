@@ -1,0 +1,18 @@
+CREATE TABLE films(
+	id SERIAL PRIMARY KEY,
+	title TEXT UNIQUE,
+	genre TEXT,
+	release_year INTEGER,
+	score INTEGER
+);
+
+-- ADD NEW DIRECTORID COLUMN
+ALTER TABLE films
+ADD directorid INTEGER;
+
+-- UPDATE EACH DIRECTORID COLUMN
+BEGIN;
+UPDATE films
+SET directorid = 6
+WHERE title LIKE '%Matrix%' RETURNING *;
+COMMIT;
