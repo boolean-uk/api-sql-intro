@@ -95,3 +95,31 @@ values
 ('Zavid Macendie'),
 ('Serlio Geone'),
 ('Es Lint Woodcat ');
+
+ALTER TABLE films ADD COLUMN directorId INTEGER;
+
+UPDATE films
+SET directorid = case
+	when id = 1 then 1
+	when id = 2 then 2
+	when id = 3 then 3
+	when id = 4 then 4
+	when id = 5 then 5
+	when id = 6 then 6
+	when id = 7 then 7
+	when id = 8 then 6 
+	when id = 9 then 8
+	when id = 10 then 9
+	when id = 11 then 10 
+	when id = 12 then 11
+	when id = 13 then 12
+	when id = 14 then 13
+END
+where id IN(1,2,3,4,5,6,7,8,9,10,11,12,13,14);
+
+
+SELECT title, name from films 
+	JOIN directors
+	on films.directorid = directors.id
+order by films.id asc;
+
