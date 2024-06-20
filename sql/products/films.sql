@@ -166,3 +166,10 @@ SELECT title AS movie_name, name AS director
 FROM films
 INNER JOIN directors 
     ON films.director_id = directors.id;
+
+-- return a lists of directors along with the number of films they have directed
+SELECT name AS director, COUNT(title) AS movies
+FROM films
+INNER JOIN directors 
+    ON films.director_id = directors.id
+GROUP BY name
