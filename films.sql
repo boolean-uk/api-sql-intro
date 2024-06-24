@@ -22,3 +22,5 @@ INSERT INTO films (title, genre, release_year, rating) VALUES ('The Good the Bad
 INSERT INTO films (title, genre, release_year, rating) VALUES ('Unforgiven', 'Western', 1992, 7);
 
 SELECT * FROM films;
+
+SELECT * FROM films ORDER BY rating DESC;
