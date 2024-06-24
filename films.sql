@@ -20,3 +20,5 @@ INSERT INTO films (title, genre, release_year, rating) VALUES ('The Power Of The
 INSERT INTO films (title, genre, release_year, rating) VALUES ('Hell or High Water', 'Western', 2016, 8);
 INSERT INTO films (title, genre, release_year, rating) VALUES ('The Good the Bad and the Ugly', 'Western', 1966, 9);
 INSERT INTO films (title, genre, release_year, rating) VALUES ('Unforgiven', 'Western', 1992, 7);
+
+SELECT * FROM films;
