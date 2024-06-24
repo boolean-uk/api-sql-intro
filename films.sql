@@ -24,3 +24,5 @@ INSERT INTO films (title, genre, release_year, rating) VALUES ('Unforgiven', 'We
 SELECT * FROM films;
 
 SELECT * FROM films ORDER BY rating DESC;
+
+SELECT * FROM films ORDER BY release_year ASC;
