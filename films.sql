@@ -26,3 +26,5 @@ SELECT * FROM films;
 SELECT * FROM films ORDER BY rating DESC;
 
 SELECT * FROM films ORDER BY release_year ASC;
+
+SELECT * FROM films WHERE rating > 7;
