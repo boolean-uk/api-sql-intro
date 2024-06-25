@@ -76,4 +76,5 @@ INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('Unf
 SELECT * FROM films INNER JOIN directors ON films.director_id = directors.id;
 
 
+SELECT name, COUNT(title) AS film_count FROM directors INNER JOIN films ON directors.id = films.director_id GROUP BY name;
 
