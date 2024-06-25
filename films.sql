@@ -38,3 +38,42 @@ SELECT AVG(rating) FROM films;
 SELECT COUNT(*) FROM films;
 SELECT genre, AVG(rating) FROM films GROUP BY genre;
 
+
+CREATE TABLE directors(id serial primary key, name TEXT);
+INSERT INTO directors(name) VALUES ('Jane Doe');
+INSERT INTO directors(name) VALUES ('Johny Something');
+INSERT INTO directors(name) VALUES ('Unkown Person');
+INSERT INTO directors(name) VALUES ('Real Director');
+INSERT INTO directors(name) VALUES ('Unreal Director')
+
+DROP TABLE films;
+
+CREATE TABLE films(
+ id serial primary key,
+ title TEXT UNIQUE,
+ genre TEXT,
+ release_year INTEGER,
+ rating INTEGER,
+ director_id INTEGER, 
+ FOREIGN KEY (director_id) REFERENCES directors(id)
+);
+
+INSERT INTO films (title, genre, release_year, rating, director_id)  VALUES ('The Shawshank Redemption', 'Drama', 1994, 9, 1);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Godfather', 'Crime', 1972, 9, 5);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Dark Knight', 'Action', 2008, 9, 2);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('Alien', 'SciFi', 1979, 9, 4);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('Total Recall', 'SciFi', 1990, 8, 3);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Matrix', 'SciFi', 1999, 8, 3);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Matrix Resurrections', 'SciFi', 2021, 5, 1);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Matrix Reloaded', 'SciFi', 2003, 6, 5);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Hunt for Red October', 'Thriller', 1990, 7, 5);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('Misery', 'Thriller', 1990, 7, 5);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Power Of The Dog', 'Western', 2021, 6, 2);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('Hell or High Water', 'Western', 2016, 8, 4);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('The Good the Bad and the Ugly', 'Western', 1966, 9, 3);
+INSERT INTO films (title, genre, release_year, rating, director_id) VALUES ('Unforgiven', 'Western', 1992, 7, 2);
+
+SELECT * FROM films INNER JOIN directors ON films.director_id = directors.id;
+
+
+
