@@ -1,0 +1,113 @@
+CORE:
+
+Create table films (
+  id serial primary key,
+  title varchar(100) unique not null,
+  genre varchar(100) not null,
+  releaseYear integer not null,
+  score integer not null
+);
+INSERT INTO films (title, genre, releaseYear, score) VALUES
+('The Shawshank Redemption', 'Drama', 1994, 9),
+('The Godfather', 'Crime', 1972, 9),
+('The Dark Knight', 'Action', 2008, 9),
+('Alien', 'SciFi', 1979, 9),
+('Total Recall', 'SciFi', 1990, 8),
+('The Matrix', 'SciFi', 1999, 8),
+('The Matrix Resurrections', 'SciFi', 2021, 5),
+('The Matrix Reloaded', 'SciFi', 2003, 6),
+('The Hunt for Red October', 'Thriller', 1990, 7),
+('Misery', 'Thriller', 1990, 7),
+('The Power Of The Dog', 'Western', 2021, 6),
+('Hell or High Water', 'Western', 2016, 8),
+('The Good the Bad and the Ugly', 'Western', 1966, 9),
+('Unforgiven', 'Western', 1992, 7);
+
+SELECT * from films;
+
+SELECT * from films order by score desc;
+
+SELECT * from films order by releaseYear asc;
+
+SELECT * from films where score >= 8; 
+
+SELECT * from films where score <= 7; 
+
+SELECT * from films where releaseyear = 1990; 
+
+SELECT * from films where releaseyear < 2000; 
+
+SELECT * from films where releaseyear > 1990; 
+
+SELECT * from films where 1999 > releaseyear and releaseyear > 1990; 
+
+SELECT * from films where genre = 'SciFi';
+
+SELECT * from films where genre = 'SciFi' or genre = 'Western';
+
+SELECT * from films where genre != 'SciFi';
+
+SELECT * from films where genre = 'Western' and releaseyear < 2000;
+
+SELECT * from films where title like '%Matrix%';
+
+EXRENSION 1:
+
+select avg(score) from films;
+
+select count(*) from films group by genre;
+
+select genre, avg(score) as averageScore from films group by genre;
+
+Extension 2:
+
+Create table directors (
+  directorId serial primary key,
+  name varchar(100) not null,
+  country varchar(100) not null
+);
+Create table films (
+  id serial primary key,
+  title varchar(100) unique not null,
+  genre varchar(100) not null,
+  releaseYear integer not null,
+  score integer not null,
+  directorId_fk integer not null
+);
+INSERT INTO directors (name) VALUES
+    ('Frank Darabont'),
+    ('Francis Ford Coppola'),
+    ('Christopher Nolan'),
+    ('Ridley Scott'),
+    ('Paul Verhoeven'),
+    ('Lana Wachowski'),
+    ('Lilly Wachowski'),
+    ('John McTiernan'),
+    ('Rob Reiner'),
+    ('Jane Campion'),
+    ('David Mackenzie'),
+    ('Sergio Leone'),
+    ('Clint Eastwood');
+
+INSERT INTO films (title, genre, releaseyear, score, directorId_fk) VALUES
+    ('The Shawshank Redemption', 'Drama', 1994, 9, 1),  -- Frank Darabont
+    ('The Godfather', 'Crime', 1972, 9, 2),             -- Francis Ford Coppola
+    ('The Dark Knight', 'Action', 2008, 9, 3),          -- Christopher Nolan
+    ('Alien', 'SciFi', 1979, 9, 4),                     -- Ridley Scott
+    ('Total Recall', 'SciFi', 1990, 8, 5),              -- Paul Verhoeven
+    ('The Matrix', 'SciFi', 1999, 8, 6),                -- Lana Wachowski, Lilly Wachowski
+    ('The Matrix Resurrections', 'SciFi', 2021, 5, 6),  -- Lana Wachowski (only)
+    ('The Matrix Reloaded', 'SciFi', 2003, 6, 6),       -- Lana Wachowski, Lilly Wachowski
+    ('The Hunt for Red October', 'Thriller', 1990, 7, 8), -- John McTiernan
+    ('Misery', 'Thriller', 1990, 7, 9),                 -- Rob Reiner
+    ('The Power Of The Dog', 'Western', 2021, 6, 10),   -- Jane Campion
+    ('Hell or High Water', 'Western', 2016, 8, 11),     -- David Mackenzie
+    ('The Good, the Bad and the Ugly', 'Western', 1966, 9, 12), -- Sergio Leone
+    ('Unforgiven', 'Western', 1992, 7, 13);             -- Clint Eastwood
+
+
+select title, name from films left join directors on directorId_fk = directorId;
+
+Extension 3:
+
+select name, count(title) from directors inner join films on directorID = directorId_fk group by name;
