@@ -1,0 +1,17 @@
+Write a SQL SELECT statements to:
+
+Return the average film rating
+
+SELECT AVG(films.score)
+FROM films;
+
+Return the total number of films
+
+SELECT COUNT(films.filmid)
+FROM films;
+
+Return the average film rating by genre
+
+SELECT films.genre, AVG(films.score)
+FROM films
+GROUP BY films.genre;

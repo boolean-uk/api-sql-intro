@@ -1,0 +1,1 @@
+CREATE TABLE films(filmId SERIAL PRIMARY KEY, title  VARCHAR(255) UNIQUE, genre VARCHAR(255) NOT NULL, releaseYear int, score int);

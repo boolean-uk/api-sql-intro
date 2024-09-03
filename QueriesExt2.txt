@@ -1,0 +1,26 @@
+Create a new directors table. Each director should have a name and a unique director id. Recreate your films table and add a directorId column. Insert a few director records (the data does not need to be real, you can just make directors up). Re-insert your film data, updating each film ao it will have a directorId. Using an SQL JOIN, write a SELECT statement that returns a list of films with their director.
+
+
+CREATE TABLE directors(
+	directorId SERIAL,
+	name VARCHAR(255) NOT NULL,
+	PRIMARY KEY (directorId)
+);
+
+INSERT INTO directors (name)
+VALUES('Anders'), ('Per'), ('Line'), ('Loke'), ('Gunnar'), ('Petter'), ('Ole'), ('Tina'), ('Jonas'), ('Trine');
+
+ALTER TABLE films
+ADD directorsId int;
+
+Added id-es with UPDATE
+
+ALTER TABLE films
+ADD FOREIGN KEY(directorsid) REFERENCES directors(directorid);
+
+SELECT * FROM films
+INNER JOIN directors 
+ON directors.directorid=films.directorsid;
+
+
+
