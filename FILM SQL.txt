@@ -1,0 +1,107 @@
+- CREATING TABLE : 
+CREATE TABLE film (
+film_id SERIAL PRIMARY KEY,
+title VARCHAR(255) UNIQUE NOT NULL,
+genre VARCHAR(100),
+release_year INTEGER,
+score INTEGER CHECK (score >= 0 AND score <=10)
+);
+
+- INSERTING VALUES : 
+INSERT INTO film (title, genre, release_year, score)
+VALUES 
+    ('The Shawshank Redemption', 'Drama', 1994, 9),
+    ('The Godfather', 'Crime', 1972, 9),
+    ('The Dark Knight', 'Action', 2008, 9),
+    ('Alien', 'SciFi', 1979, 9),
+    ('Total Recall', 'SciFi', 1990, 8),
+    ('The Matrix', 'SciFi', 1999, 8),
+    ('The Matrix Resurrections', 'SciFi', 2021, 5),
+    ('The Matrix Reloaded', 'SciFi', 2003, 6),
+    ('The Hunt for Red October', 'Thriller', 1990, 7),
+    ('Misery', 'Thriller', 1990, 7),
+    ('The Power Of The Dog', 'Western', 2021, 6),
+    ('Hell or High Water', 'Western', 2016, 8),
+
+CORE REQUIREMENTS: 
+
+1 : 
+SELECT * FROM film
+
+2:
+SELECT * FROM film ORDER BY release_year DESC
+
+3: 
+SELECT * FROM film ORDER BY release_year
+
+4: 
+SELECT * FROM film WHERE score >= 8
+
+5:
+SELECT * FROM film WHERE score <= 7
+
+6:
+SELECT * FROM film WHERE release_year = 1990
+
+7: 
+SELECT * FROM film WHERE release_year < 2000
+
+8:
+SELECT * FROM film WHERE release_year > 1990
+
+9:
+SELECT * FROM film WHERE release_year >= 1990 AND release_year <= 1999
+
+10: 
+SELECT * FROM film WHERE genre LIKE 'SciFi'
+
+11: 
+SELECT * FROM film WHERE genre LIKE 'SciFi' OR genre LIKE 'Western'
+
+12:
+SELECT * FROM film WHERE genre NOT LIKE 'SciFi'
+
+13: 
+SELECT * FROM film WHERE genre LIKE 'Western' AND release_year < 2000
+
+14: 
+SELECT * FROM film WHERE title LIKE '%Matrix%'
+
+- EXTENSION 1 : 
+
+1: 
+SELECT AVG(score) AS avg_score FROM film
+
+2: 
+SELECT COUNT(*) AS film_count FROM film
+
+3: 
+SELECT genre, AVG(score) AS average_grouped_by_genre FROM film GROUP BY genre
+
+
+-EXTENSION 2 : 
+
+CREATE TABLE directors(
+director_name VARCHAR(255),
+director_id INTEGER NOT NULL
+);
+
+ALTER TABLE films
+ADD CONSTRAINT fk_director
+FOREIGN KEY (directorId)
+REFERENCES directors(directorId);
+
+UPDATE films
+SET directorId = 1
+WHERE title = 'The Shawshank Redemption';
+
+REPEAT FOR ALL MOVIES
+
+EXTENSION 3 : 
+
+
+SELECT f.title AS movie_title, d.director_name
+FROM film f
+JOIN director d ON f.director_id = d.director_id;
+
+
