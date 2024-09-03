@@ -1,0 +1,40 @@
+CREATE TABLE IF NOT EXISTS Directors(
+	directorId serial PRIMARY KEY,
+	name VARCHAR (100) NOT NULL
+);
+
+INSERT INTO
+	directors(name)
+VALUES
+	('Francis Ford Coppola'),
+	('Wachowskis'),
+	('Frank Darabont'),
+	('Sergio Leone'),
+	('Christopher Nolan');
+
+
+ALTER TABLE films ADD directorId INTEGER;
+
+ALTER TABLE films ADD FOREIGN KEY (directorId) REFERENCES Directors(directorId);
+
+UPDATE films SET directorId = 1 WHERE title = 'The Godfather';
+UPDATE films SET directorId = 2 WHERE title = 'The Matrix';
+UPDATE films SET directorId = 2 WHERE title = 'The Matrix Resurrections';
+UPDATE films SET directorId = 2 WHERE title = 'The Matrix Reloaded';
+UPDATE films SET directorId = 3 WHERE title = 'The Shawshank Redemption';
+UPDATE films SET directorId = 4 WHERE title = 'The Good the Bad and the Ugly';
+UPDATE films SET directorId = 5 WHERE title = 'The Dark Knight';
+UPDATE films SET directorId = 2 WHERE title = 'Alien';
+UPDATE films SET directorId = 2 WHERE title = 'Total Recall';
+UPDATE films SET directorId = 4 WHERE title = 'The Power Of The Dog';
+UPDATE films SET directorId = 4 WHERE title = 'Hell or High Water';
+UPDATE films SET directorId = 4 WHERE title = 'Unforgiven';
+UPDATE films SET directorId = 1 WHERE title = 'The Hunt for Red October';
+UPDATE films SET directorId = 1 WHERE title = 'Misery';
+
+ALTER TABLE directors
+RENAME COLUMN name to director_name;
+
+SELECT films.title, directors.director_name 
+FROM films 
+INNER JOIN directors ON films.directorId = directors.directorId;
