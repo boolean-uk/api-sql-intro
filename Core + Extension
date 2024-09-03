@@ -1,0 +1,38 @@
+SQL SELECT STATEMENTS 
+
+
+SELECT * FROM films;
+SELECT * FROM films ORDER BY score DESC;
+SELECT * FROM films ORDER BY release_year ASC;
+SELECT * FROM films WHERE score >= 8;
+SELECT * FROM films WHERE score <= 7;
+SELECT * FROM films WHERE release_year = 1990;
+SELECT * FROM films WHERE release_year < 2000;
+SELECT * FROM films WHERE release_year > 1990;
+SELECT * FROM films WHERE release_year BETWEEN 1990 AND 1999;
+SELECT * FROM films WHERE genre = 'SciFi';
+SELECT * FROM films WHERE genre = 'SciFi' OR genre = 'Western';
+SELECT * FROM films WHERE genre != 'SciFi';
+SELECT * FROM films WHERE genre = 'Western' AND release_year < 2000;
+SELECT * FROM films WHERE title LIKE '%Matrix%';
+
+EXTENSION 1
+SELECT AVG(score) from films;
+SELECT COUNT(film_id) from films;
+SELECT AVG(score) from films GROUP BY genre;
+
+EXTENSION 2
+
+SELECT films.title, directors.name FROM films INNER JOIN directors ON films.director_id = directors.director_id;
+
+EXTENSION 3
+
+SELECT 
+    d.name AS director_name,
+    COUNT(f.film_id) AS number_of_films
+FROM 
+    directors d
+LEFT JOIN 
+    films f ON d.director_id = f.director_id
+GROUP BY 
+    d.name;
