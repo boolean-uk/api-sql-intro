@@ -1,0 +1,9 @@
+(return average film rating)
+Select AVG(score) from film;
+
+(return total number of films)
+Select COUNT(*) from film;
+
+(Return the average film rating by genre)
+Select genre, AVG(score) from film
+GROUP BY genre;

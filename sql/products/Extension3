@@ -1,0 +1,6 @@
+Write a SQL SELECT statement that returns a lists of directors along with the number of films they have directed.
+
+
+Select d.name as director.name, count (f.id) as TotalNumberOfFilms from Director d
+Left Join film f on d.Id = f.directorid
+Group by d.name, d.id;

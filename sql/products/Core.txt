@@ -1,0 +1,85 @@
+1)
+(Creating table film)
+CREATE TABLE Film (
+  id serial PRIMARY KEY,
+  title VARCHAR(50) NOT NULL,
+  genre VARCHAR(50) NOT NULL,
+  releaseyear INTEGER NOT NULL,
+	score INTEGER NOT NULL
+ )
+
+2)
+(Inserting following record and fields with values into the table film)
+INSERT INTO Film (title, genre, releaseyear, score)
+VALUES
+('The Shawshank Redemption', 'Drama', 1994, 9),
+('The Godfather','Crime', 1972, 9),
+('The Dark Knight','Action', 2008, 9),
+('Alien', 'SciFi', 1979, 9),
+('Total Recall', 'SciFi', 1990, 8),
+('The Matrix', 'SciFi', 1999, 8),
+('The Matrix Resurrections', 'SciFi', 2021, 5),
+('The Matrix Reloaded', 'SciFi', 2003, 6),
+('The Hunt for Red October', 'Thriller', 1990, 7),
+('Misery', 'Thriller', 1990, 7),
+('The Power Of The Dog', 'Western', 2021, 6),
+('Hell or High Water', 'Western', 2016, 8),
+('The Good the Bad and the Ugly', 'Western', 1966, 9),
+('Unforgiven', 'Western', 1992, 7);
+
+(all films)
+Select * from film;
+
+(order by score descending)
+Select * from film
+Order By score DESC;
+
+(order by releaseyear ascending)
+Select * from film
+Order By releaseyear ASC;
+
+(films rating by 8 or higher)
+Select * from film
+WHERE score >= 8;
+
+(films rating by 7 or lower)
+Select * from film
+WHERE score <= 7;
+
+(films releaseyear 1990)
+Select * from film
+WHERE releaseyear = 1990;
+
+(films released before 2000)
+Select * from film
+WHERE releaseyear < 2000;
+
+(films released after 1990)
+Select * from film
+WHERE releaseyear > 1990;
+
+(films released between 1990 and 1999)
+Select * from film
+WHERE releaseyear >= 1990 AND releaseyear <= 1999;
+
+(films with genre scifi)
+Select * from film
+WHERE genre = 'SciFi';
+
+(films with genre western or scifi)
+Select * from film
+WHERE genre = 'SciFi' OR genre = 'Western';
+
+(all genres and films, apart from genre scifi)
+Select * from film
+WHERE genre != 'SciFi';
+
+(films with genre western and releaseyear before 2000)
+Select * from film
+WHERE genre = 'Western' and releaseyear < 2000;
+
+(films with word matrix in title)
+Select * from film
+WHERE title LIKE '%Matrix%';
+
+

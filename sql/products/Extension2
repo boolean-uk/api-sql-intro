@@ -1,0 +1,53 @@
+Creating a directortable
+
+CREATE TABLE Director(
+  id serial PRIMARY KEY,
+  name VARCHAR(100) NOT NULl
+)
+
+Recreate your films table and add a directorId column
+
+DROP TABLE IF EXISTS film;
+
+CREATE TABLE FILM (
+  id serial PRIMARY KEY,
+  title varchar (50) NOT NULL,
+  genre varchar (50) NOT NULL,
+  releaseyear INTEGER NOT NULL,
+  score INTEGER NOT NULL,
+  directorId INTEGER NOT NULL,
+  FOREIGN KEY(directorId) REFERENCES Director(id)
+);
+
+Insert a few director records (the data does not need to be real, you can just make directors up)).
+
+INSERT INTO Director (name)
+VALUES
+('Karan Johar'),
+('Salman Khan'),
+('Shahrukh Khan');
+
+Re-insert your film data, updating each film ao it will have a directorId
+
+INSERT INTO Film (title, genre, releaseyear, score, directorId)
+VALUES
+('The Shawshank Redemption', 'Drama', 1994, 9, 1),
+('The Godfather','Crime', 1972, 9, 2),
+('The Dark Knight','Action', 2008, 9, 1),
+('Alien', 'SciFi', 1979, 9, 3),
+('Total Recall', 'SciFi', 1990, 8, 3),
+('The Matrix', 'SciFi', 1999, 8, 1),
+('The Matrix Resurrections', 'SciFi', 2021, 5, 2),
+('The Matrix Reloaded', 'SciFi', 2003, 6, 4),
+('The Hunt for Red October', 'Thriller', 1990, 7, 3),
+('Misery', 'Thriller', 1990, 7, 2),
+('The Power Of The Dog', 'Western', 2021, 6, 1),
+('Hell or High Water', 'Western', 2016, 8, 2),
+('The Good the Bad and the Ugly', 'Western', 1966, 9, 3),
+('Unforgiven', 'Western', 1992, 7, 4);
+
+Using an SQL JOIN, write a SELECT statement that returns a list of films with their director.
+
+Select f.title, f.genre, f.releaseyear, f.score, d.name as director.name 
+from Film f
+INNER JOIN director d on f.directorId = d.directorId; 
