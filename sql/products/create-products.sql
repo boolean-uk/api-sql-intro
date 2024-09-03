@@ -6,3 +6,17 @@ CREATE TABLE products(
  unique(name)
 )
 
+
+
+
+
+CREATE TABLE films(
+ id serial primary key,
+ title TEXT not null,
+ genre TEXT not null,
+ price int not null,
+ score int not null,
+ unique(title)
+)
+
+
