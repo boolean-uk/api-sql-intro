@@ -1,0 +1,8 @@
+CREATE TABLE films (
+ id SERIAL PRIMARY KEY,
+ title VARCHAR(50) NOT NULL,
+ UNIQUE (title),
+ genre VARCHAR(50) NOT NULL,
+ release INTEGER NOT NULL,
+ score INTEGER NOT NULL CHECK (score > 0 AND score < 11)
+);
