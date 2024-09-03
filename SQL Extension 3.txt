@@ -1,0 +1,4 @@
+Select name, count(title)
+FROM filmsDir JOIN Director
+ON filmsDir.directorid=Director.directorid
+Group by name

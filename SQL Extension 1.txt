@@ -1,0 +1,9 @@
+Select AVG(score)
+FROM films;
+
+Select count(*)
+FROM films;
+
+SELECT genre, AVG(score)
+FROM films
+GROUP BY genre

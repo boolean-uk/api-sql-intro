@@ -1,0 +1,205 @@
+CREATE TABLE director(
+  directorId SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+  
+);
+
+CREATE TABLE filmsDir (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(30) NOT NULL,
+  directorID INTEGER,
+  genre VARCHAR(20) NOT NULL,
+  year INTEGER NOT NULL,
+  score INTEGER NOT NULL
+  
+);
+
+Insert INTO director 
+    (name)
+VALUES
+    ('Steven Spielberg');
+
+Insert INTO director
+    (name)
+VALUES
+    ('Hayao Miyazaki');
+
+Insert INTO director
+    (name)
+VALUES
+    ('Quentin Tarantino');
+
+Select * from director
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Unforgiven', 1, 'Western', 1997, 7);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Shawstank Recemption',2, 'Drama', 1994, 9);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Godfather',3, 'Crime', 1972, 9);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Dark Knight',1, 'Action', 2008, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Alien',2, 'SciFi', 1979, 9);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Total Recall',3, 'SciFi', 1990, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Matrix',1, 'SciFi', 1999, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Matrix Resurrections',2, 'SciFi', 2021, 5);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Matrix Reloaded',3, 'SciFi', 2003, 6);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Hunt for Red October',1, 'Thriller', 1990, 7);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Misery',2, 'Thriller', 1990, 7);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Power Of The Dog',3, 'Western', 2021, 6);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Hell or High Water',1, 'Western', 2016, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Good the Bad and the Ugly',2, 'Western', 1966, 9);
+
+
+
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Unforgiven', 1, 'Western', 1997, 7);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Shawstank Recemption',2, 'Drama', 1994, 9);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Godfather',3, 'Crime', 1972, 9);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Dark Knight',1, 'Action', 2008, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Alien',2, 'SciFi', 1979, 9);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Total Recall',3, 'SciFi', 1990, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Matrix',1, 'SciFi', 1999, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Matrix Resurrections',2, 'SciFi', 2021, 5);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Matrix Reloaded',3, 'SciFi', 2003, 6);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Hunt for Red October',1, 'Thriller', 1990, 7);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Misery',2, 'Thriller', 1990, 7);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Power Of The Dog',3, 'Western', 2021, 6);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('Hell or High Water',1, 'Western', 2016, 8);
+    
+INSERT INTO filmsDir
+    (title, directorID, genre, year, score)
+
+VALUES
+    ('The Good the Bad and the Ugly',2, 'Western', 1966, 9);
+
+Select title, name 
+FROM filmsDir JOIN Director
+ON filmsDir.directorid=Director.directorid
