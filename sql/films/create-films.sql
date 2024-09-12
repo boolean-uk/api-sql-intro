@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS films(
+id SERIAL PRIMARY KEY NOT NULL,
+title VARCHAR(50) UNIQUE NOT NULL ,
+genre VARCHAR(50), 
+release_year INT,
+score INT,
+CHECK(score BETWEEN 0 AND 10 )
+)
