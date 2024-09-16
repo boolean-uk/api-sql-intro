@@ -1,0 +1,7 @@
+-- CREATE TABLE directors (
+-- directorId SERIAL PRIMARY KEY,
+-- title VARCHAR(255) UNIQUE NOT NULL,
+-- genre VARCHAR(255) NOT NULL,
+-- year INT NOT NULL,
+-- score INT CHECK (score BETWEEN 0 AND 10)
+-- );
