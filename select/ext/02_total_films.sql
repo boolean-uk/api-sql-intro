@@ -1,0 +1,1 @@
+select count(id) as total_movies from movies
