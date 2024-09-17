@@ -1,0 +1,1 @@
+SELECT * FROM films INNER JOIN directors ON films.directorId=directors.id;
