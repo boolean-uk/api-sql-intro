@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS films (
+id SERIAL PRIMARY KEY, 
+title VARCHAR(255) NOT NULL UNIQUE,
+genre VARCHAR(50) NOT NULL,
+release_year int NOT NULL,
+score int NOT NULL
+);
