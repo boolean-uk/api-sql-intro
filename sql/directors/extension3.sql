@@ -1,0 +1,1 @@
+SELECT name, COUNT(*) FROM films JOIN directors AS dirs ON director_id = dirs.id GROUP BY name;

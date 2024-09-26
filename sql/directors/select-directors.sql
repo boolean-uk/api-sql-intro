@@ -1,0 +1,1 @@
+SELECT (title, genre, release_year, score, name) FROM films JOIN directors AS dirs ON director_id = dirs.id;
