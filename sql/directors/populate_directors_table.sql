@@ -1,0 +1,13 @@
+INSERT INTO directors (name) VALUES ('Frank Darabont');
+INSERT INTO directors (name) VALUES ('Francis Ford Coppola');
+INSERT INTO directors (name) VALUES ('Christopher Nolan');
+INSERT INTO directors (name) VALUES ('Ridley Scott');
+INSERT INTO directors (name) VALUES ('Paul Verhoeven');
+INSERT INTO directors (name) VALUES ('Lilly Wachowski');
+INSERT INTO directors (name) VALUES ('Lana Wachowski');
+INSERT INTO directors (name) VALUES ('John McTiernan');
+INSERT INTO directors (name) VALUES ('Rob Reiner');
+INSERT INTO directors (name) VALUES ('Jane Campion');
+INSERT INTO directors (name) VALUES ('David Mackenzie');
+INSERT INTO directors (name) VALUES ('Sergio Leone');
+INSERT INTO directors (name) VALUES ('Clint Eastwood');
