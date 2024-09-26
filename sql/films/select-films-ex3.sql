@@ -1,0 +1,1 @@
+SELECT directors.name, COUNT(title) AS count_films FROM films INNER JOIN directors ON directors.id = films.directorId GROUP BY directors.name
