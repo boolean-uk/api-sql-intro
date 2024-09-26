@@ -1,0 +1,117 @@
+create table if not exists film(
+	id Serial PRIMARY KEY UNIQUE,
+	title TEXT UNIQUE,
+	genre TEXT,
+	year integer,
+	score INTEGER
+);
+
+
+INSERT INTO film (
+title, genre, year, score
+)
+VALUES
+	('The Shawshank Redemption', 'Drama', 1994, 9),
+	('The Godfather', 'Crime', 1972, 9),
+	('The Dark Knight', 'Action', 2008, 9),
+	('Alien', 'SciFi', 1979, 9),
+	('Total Recall', 'SciFi', 1990, 8),
+	('The Matrix', 'SciFi', 1999, 8),
+	('The Matrix Resurrections', 'SciFi', 1994, 9),
+	('The Matrix Reloaded', 'SciFi', 1994, 6),
+	('The Hunt for Red October', 'SciFi', 1994, 9),
+	('Misery', 'Thriller', 1994, 7),
+	('The Power Of The Dog', 'Western', 1994, 9),
+	('Hell or High Water', 'Western', 1994, 7),
+	('The Good the Bad and the Ugly', 'Western', 1994, 7),
+	('Unforgiven', 'Western', 1994, 9);
+
+
+/*  All films ordered by rating descending
+* All films ordered by release year ascending
+* All films with a rating of 8 or higher
+* All films with a rating of 7 or lower
+* films released in 1990
+* films released before 2000
+* films released after 1990
+* films released between 1990 and 1999
+* films with the genre of "SciFi"
+* films with the genre of "Western" or "SciFi"
+* films with any genre *apart* from "SciFi"
+* films with the genre of "Western" released before 2000
+* films that have the world "Matrix" in their title
+*/
+
+
+
+Select * from film ;
+Select * from film order by score desc;
+Select * from film where score>=8;
+Select * from film where score<=7;
+Select * from film where year = 1990;
+Select * from film where year<2000;
+Select * from film where year>1990;
+Select * from film where  year between 1990 and 1999;
+Select * from film where genre = 'SciFi';
+Select * from film where genre = 'SciFi' or genre = 'Western';
+Select * from film where not (genre = 'SciFi');
+Select * from film where genre = 'Western' and year<2000;
+Select * from film where title like '%Matrix%';
+
+
+/*## Extension 1
+Write a SQL SELECT statements to:
+* Return the average film rating
+* Return the total number of films
+* Return the average film rating by genre*/
+
+select avg(score) from film;
+Select COUNT(title) from film;
+select genre, avg(score) from film group by genre;
+
+/*
+## Extension 2
+Create a new `directors` table. Each director should have a name and a unique director id. Recreate your films table and add a `directorId` column. Insert a few director records (the data does not need to be real, you can just make directors up). Re-insert your film data, updating each film ao it will have a `directorId`. Using an SQL `JOIN`, write a SELECT statement that returns a list of films with their director.
+*/
+create table director(id SERIAL UNIQUE PRIMARY KEY, name TEXT);
+insert into director (
+	name
+)
+VALUES
+	('Ateeb'),
+ 	('Ateeb2'),
+ 	('Ateeb3'),
+ 	('Ateeb4');
+
+
+
+
+create table if not exists films(
+	filmId Serial PRIMARY KEY UNIQUE,
+	title TEXT UNIQUE,
+	genre TEXT,
+	year integer,
+	score INTEGER,
+	id SERIAL,
+	FOREIGN KEY (id) REFERENCES director(id)
+);
+
+INSERT INTO films (
+title, genre, year, score, id
+)
+VALUES
+	('The Shawshank Redemption', 'Drama', 1994, 9, 1),
+	('The Godfather', 'Crime', 1972, 9,2),
+	('The Dark Knight', 'Action', 2008, 9,3),
+	('Alien', 'SciFi', 1979, 9,4);
+
+SELECT * FROM director;
+
+Select films.title, director.name from films inner join director on films.id = director.id;
+
+/*## Extension 3
+Write a SQL SELECT statement that returns a lists of directors along with the number of films they have directed.
+*/
+
+Select count(films.title), director.name from films full join director on films.id = director.id;
+
