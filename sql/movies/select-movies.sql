@@ -1,0 +1,14 @@
+SELECT * FROM movies;
+SELECT * FROM movies ORDER BY score DESC;
+SELECT * FROM movies ORDER BY release_year ASC;
+SELECT * FROM movies WHERE score >= 8;
+SELECT * FROM movies WHERE score <= 7;
+SELECT * FROM movies WHERE release_year = 1990;
+SELECT * FROM movies WHERE release_year < 2000;
+SELECT * FROM movies WHERE release_year > 1990;
+SELECT * FROM movies WHERE release_year > 1990 AND release_year < 1999;
+SELECT * FROM movies WHERE genre = 'SciFi';
+SELECT * FROM movies WHERE genre = 'SciFi' OR genre = 'Western';
+SELECT * FROM movies WHERE genre != 'SciFi';
+SELECT * FROM movies WHERE genre = 'Western' AND release_year < 2000;
+SELECT * FROM movies WHERE name LIKE '%Matrix%';
