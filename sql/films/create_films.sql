@@ -1,0 +1,7 @@
+CREATE TABLE films(
+id SERIAL PRIMARY KEY,
+title VARCHAR(40) NOT NULL UNIQUE,
+genre VARCHAR(40),
+release_year INTEGER,
+score INTEGER CHECK (score <= 10)
+)
