@@ -1,0 +1,46 @@
+-- Extention 1
+--SELECT AVG(score) AS avarageScore FROM films;
+--SELECT COUNT(*) amountOfFilms FROM films;
+--SELECT genre, AVG(score) AS averageScorePerGenre FROM films GROUP BY genre; 
+
+-- Extention 2
+/*
+CREATE TABLE directors (
+directorId SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+);
+*/
+/*
+ALTER TABLE films
+ADD directorId INT;
+*/
+/*
+INSERT INTO directors (name)
+VALUES('Steven Spielburg'), ('Christopher Nolan'), ('Martin Scorsese'), ('Quentin Tarantino');
+*/
+--UPDATE films SET directorId = 2 WHERE title = 'The Sahshank Redemption';
+/*
+UPDATE films SET directorId = 1 WHERE title = 'The Godfather';
+UPDATE films SET directorId = 1 WHERE title = 'The Dark Knight';
+UPDATE films SET directorId = 2 WHERE title = 'Alien';
+UPDATE films SET directorId = 2 WHERE title = 'Total Recall';
+UPDATE films SET directorId = 2 WHERE title = 'The Matrix';
+UPDATE films SET directorId = 2 WHERE title = 'The Matrix Resurrections';
+UPDATE films SET directorId = 3 WHERE title = 'The Matrix Reloaded';
+UPDATE films SET directorId = 3 WHERE title = 'The Hunt for Red October';
+UPDATE films SET directorId = 3 WHERE title = 'Misery';
+UPDATE films SET directorId = 3 WHERE title = 'The Power Of The Dog';
+UPDATE films SET directorId = 4 WHERE title = 'Hell or High Water';
+UPDATE films SET directorId = 4 WHERE title = 'The Good the Bad and the Ugly';
+UPDATE films SET directorId = 4 WHERE title = 'Unforgiven';
+
+*/
+
+--SELECT films.title, directors.name AS director FROM films JOIN directors ON films.directorId = directors.directorId;
+
+-- Extention 3
+SELECT directors.name AS director_name, 
+(SELECT COUNT(*) 
+FROM films 
+WHERE films.directorId = directors.directorId) AS number_of_films_directed
+FROM directors;
