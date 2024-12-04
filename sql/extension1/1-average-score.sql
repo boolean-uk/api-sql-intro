@@ -1,0 +1,1 @@
+SELECT AVG(score) from films
