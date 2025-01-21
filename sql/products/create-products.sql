@@ -1,8 +1,10 @@
-CREATE TABLE products(
- id serial primary key,
- name varchar(255) not null,
- price int not null,
- discount boolean,
- unique(name)
+CREATE TABLE films
+(
+    id    serial primary key,
+    title varchar(255) not null,
+    genre varchar(255) not null,
+    year  int          not null,
+    score int          not null,
+    unique (title)
 )
 
