@@ -1,0 +1,6 @@
+SELECT directors.name, COUNT(films)
+FROM films
+INNER JOIN directors
+ON films.director_id = directors.id
+GROUP BY directors.id
+ORDER BY COUNT(films) DESC;
