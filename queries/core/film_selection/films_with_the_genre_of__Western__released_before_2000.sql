@@ -1,0 +1,1 @@
+SELECT * FROM films f WHERE f.genre = 'Western' and f.release_year < 2000

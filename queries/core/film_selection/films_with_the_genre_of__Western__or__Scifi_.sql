@@ -1,0 +1,1 @@
+SELECT * FROM films f WHERE f.genre  IN  ('SciFi', 'Western');

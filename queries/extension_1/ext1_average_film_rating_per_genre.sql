@@ -1,0 +1,1 @@
+SELECT f.genre, AVG(f.score) FROM films f GROUP BY f.genre
