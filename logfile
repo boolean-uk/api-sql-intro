@@ -1,0 +1,141 @@
+2025-01-22 10:46:23.659 CET [25476] LOG:  starting PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.41.34123, 64-bit
+2025-01-22 10:46:23.665 CET [25476] LOG:  listening on IPv6 address "::1", port 5432
+2025-01-22 10:46:23.665 CET [25476] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-01-22 10:46:23.939 CET [27392] LOG:  database system was shut down at 2025-01-22 10:36:19 CET
+2025-01-22 10:46:24.166 CET [25476] LOG:  database system is ready to accept connections
+2025-01-22 10:47:30.229 CET [25476] LOG:  received fast shutdown request
+2025-01-22 10:47:30.230 CET [3796] ERROR:  canceling statement due to user request
+2025-01-22 10:47:30.234 CET [25476] LOG:  aborting any active transactions
+2025-01-22 10:47:30.239 CET [25476] LOG:  background worker "logical replication launcher" (PID 3796) exited with exit code 1
+2025-01-22 10:47:30.247 CET [11792] LOG:  shutting down
+2025-01-22 10:47:30.248 CET [11792] LOG:  checkpoint starting: shutdown immediate
+2025-01-22 10:47:30.262 CET [11792] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.003 s, total=0.015 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/1572358, redo lsn=0/1572358
+2025-01-22 10:47:30.273 CET [25476] LOG:  database system is shut down
+2025-01-22 10:48:39.737 CET [13000] LOG:  starting PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.41.34123, 64-bit
+2025-01-22 10:48:39.743 CET [13000] LOG:  listening on IPv6 address "::1", port 5432
+2025-01-22 10:48:39.743 CET [13000] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-01-22 10:48:40.008 CET [8724] LOG:  database system was shut down at 2025-01-22 10:47:30 CET
+2025-01-22 10:48:40.239 CET [13000] LOG:  database system is ready to accept connections
+2025-01-22 10:50:03.390 CET [18944] FATAL:  database "api-sql-intro" does not exist
+2025-01-22 10:52:16.637 CET [21596] ERROR:  syntax error at or near "-" at character 20
+2025-01-22 10:52:16.637 CET [21596] STATEMENT:  CREATE DATABASE api-sql-intro
+	help
+	CREATE DATABASE films_db;
+2025-01-22 10:53:39.896 CET [20852] LOG:  checkpoint starting: time
+2025-01-22 10:55:32.268 CET [20852] LOG:  checkpoint complete: wrote 1034 buffers (6.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=111.973 s, sync=0.376 s, total=112.373 s; sync files=314, longest=0.004 s, average=0.002 s; distance=4865 kB, estimate=4865 kB; lsn=0/1A32900, redo lsn=0/1A32870
+2025-01-22 11:13:20.344 CET [2268] ERROR:  operator does not exist: integer == integer at character 40
+2025-01-22 11:13:20.344 CET [2268] HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+2025-01-22 11:13:20.344 CET [2268] STATEMENT:  SELECT * FROM films where release_year == 1990;
+2025-01-22 11:13:20.558 CET [2268] ERROR:  column "SciFi" does not exist at character 36
+2025-01-22 11:13:20.558 CET [2268] STATEMENT:  select * from films where genre == "SciFi";
+2025-01-22 11:13:20.565 CET [2268] ERROR:  column "SciFi" does not exist at character 36
+2025-01-22 11:13:20.565 CET [2268] STATEMENT:  select * from films where genre == "SciFi" or genre == "Western";
+2025-01-22 11:13:20.573 CET [2268] ERROR:  column "SciFi" does not exist at character 36
+2025-01-22 11:13:20.573 CET [2268] STATEMENT:  select * from films where genre != "SciFi";
+2025-01-22 11:13:20.579 CET [2268] ERROR:  column "Western" does not exist at character 36
+2025-01-22 11:13:20.579 CET [2268] STATEMENT:  select * from films where genre == "Western" and release_year < 2000;
+2025-01-22 11:15:20.282 CET [2268] ERROR:  column "SciFi" does not exist at character 35
+2025-01-22 11:15:20.282 CET [2268] STATEMENT:  select * from films where genre = "SciFi";
+2025-01-22 11:15:20.284 CET [2268] ERROR:  column "SciFi" does not exist at character 35
+2025-01-22 11:15:20.284 CET [2268] STATEMENT:  select * from films where genre = "SciFi" or genre = "Western";
+2025-01-22 11:15:20.287 CET [2268] ERROR:  column "SciFi" does not exist at character 39
+2025-01-22 11:15:20.287 CET [2268] STATEMENT:  select * from films where not genre = "SciFi";
+2025-01-22 11:15:20.290 CET [2268] ERROR:  column "Western" does not exist at character 35
+2025-01-22 11:15:20.290 CET [2268] STATEMENT:  select * from films where genre = "Western" and release_year < 2000;
+2025-01-22 11:23:32.503 CET [2268] ERROR:  syntax error at or near "by" at character 43
+2025-01-22 11:23:32.503 CET [2268] STATEMENT:  select genre, avg(score) from films gourp by genre;
+2025-01-22 11:35:45.865 CET [2268] ERROR:  syntax error at or near "FOREIGN" at character 173
+2025-01-22 11:35:45.865 CET [2268] STATEMENT:  CREATE TABLE films_dk (
+	    film_id SERIAL PRIMARY KEY, 
+	    title VARCHAR(255) UNIQUE,   
+	    genre VARCHAR(50),
+	    release_year INTEGER,
+	    score INTEGER,
+		director_id FOREIGN KEY references directors(director_id)
+	);
+2025-01-22 11:35:46.032 CET [2268] ERROR:  relation "films_dk" does not exist at character 13
+2025-01-22 11:35:46.032 CET [2268] STATEMENT:  INSERT INTO films_dk (title, genre, release_year, score, director_id) VALUES
+	('The Phantom Realm', 'Action', 2022, 87, 1),
+	('Echoes of Tomorrow', 'Sci-Fi', 2021, 91, 1),
+	('Lost in Shadows', 'Drama', 2020, 82, 2),
+	('City of Dreams', 'Romance', 2019, 78, 2),
+	('A Silent Whisper', 'Thriller', 2023, 85, 3),
+	('Sunset Boulevard', 'Mystery', 2022, 88, 3),
+	('Into the Abyss', 'Action', 2021, 79, 1),
+	('A Dance of Fire', 'Fantasy', 2020, 80, 2),
+	('Beyond the Horizon', 'Adventure', 2023, 90, 1),
+	('The Last Stand', 'War', 2022, 84, 3);
+2025-01-22 11:35:46.054 CET [2268] ERROR:  syntax error at or near "on" at character 64
+2025-01-22 11:35:46.054 CET [2268] STATEMENT:  select films_dk.title, directors.name from films_dk inner join on films_dk.director_id=directors.director_id;
+2025-01-22 11:37:28.623 CET [2268] ERROR:  relation "directors" already exists
+2025-01-22 11:37:28.623 CET [2268] STATEMENT:  create table directors (
+		director_id SERIAL PRIMARY KEY,
+		name VARCHAR(255)
+	);
+2025-01-22 11:37:28.697 CET [2268] ERROR:  syntax error at or near "FOREIGN" at character 173
+2025-01-22 11:37:28.697 CET [2268] STATEMENT:  CREATE TABLE films_dk (
+	    film_id SERIAL PRIMARY KEY, 
+	    title VARCHAR(255) UNIQUE,   
+	    genre VARCHAR(50),
+	    release_year INTEGER,
+	    score INTEGER,
+		director_id FOREIGN KEY references directors(director_id)
+	);
+2025-01-22 11:37:28.903 CET [2268] ERROR:  relation "films_dk" does not exist at character 13
+2025-01-22 11:37:28.903 CET [2268] STATEMENT:  INSERT INTO films_dk (title, genre, release_year, score, director_id) VALUES
+	('The Phantom Realm', 'Action', 2022, 87, 1),
+	('Echoes of Tomorrow', 'Sci-Fi', 2021, 91, 1),
+	('Lost in Shadows', 'Drama', 2020, 82, 2),
+	('City of Dreams', 'Romance', 2019, 78, 2),
+	('A Silent Whisper', 'Thriller', 2023, 85, 3),
+	('Sunset Boulevard', 'Mystery', 2022, 88, 3),
+	('Into the Abyss', 'Action', 2021, 79, 1),
+	('A Dance of Fire', 'Fantasy', 2020, 80, 2),
+	('Beyond the Horizon', 'Adventure', 2023, 90, 1),
+	('The Last Stand', 'War', 2022, 84, 3);
+2025-01-22 11:37:28.939 CET [2268] ERROR:  relation "films_dk" does not exist at character 44
+2025-01-22 11:37:28.939 CET [2268] STATEMENT:  select films_dk.title, directors.name from films_dk inner join directors on films_dk.director_id=directors.director_id;
+2025-01-22 11:38:19.592 CET [13000] LOG:  received fast shutdown request
+2025-01-22 11:38:19.593 CET [16368] ERROR:  canceling statement due to user request
+2025-01-22 11:38:19.597 CET [13000] LOG:  aborting any active transactions
+2025-01-22 11:38:19.604 CET [13000] LOG:  background worker "logical replication launcher" (PID 16368) exited with exit code 1
+2025-01-22 11:38:19.611 CET [20852] LOG:  shutting down
+2025-01-22 11:38:19.613 CET [20852] LOG:  checkpoint starting: shutdown immediate
+2025-01-22 11:38:19.654 CET [20852] LOG:  checkpoint complete: wrote 38 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.030 s, total=0.043 s; sync files=34, longest=0.003 s, average=0.001 s; distance=134 kB, estimate=4392 kB; lsn=0/1A541D0, redo lsn=0/1A541D0
+2025-01-22 11:38:19.667 CET [13000] LOG:  database system is shut down
+2025-01-22 11:39:38.358 CET [21740] LOG:  starting PostgreSQL 17.2 on x86_64-windows, compiled by msvc-19.41.34123, 64-bit
+2025-01-22 11:39:38.364 CET [21740] LOG:  listening on IPv6 address "::1", port 5432
+2025-01-22 11:39:38.364 CET [21740] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-01-22 11:39:38.635 CET [3384] LOG:  database system was shut down at 2025-01-22 11:38:19 CET
+2025-01-22 11:39:38.867 CET [21740] LOG:  database system is ready to accept connections
+2025-01-22 11:39:43.001 CET [21240] ERROR:  column "director_id" referenced in foreign key constraint does not exist
+2025-01-22 11:39:43.001 CET [21240] STATEMENT:  CREATE TABLE films_dk (
+	    film_id SERIAL PRIMARY KEY, 
+	    title VARCHAR(255) UNIQUE,   
+	    genre VARCHAR(50),
+	    release_year INTEGER,
+	    score INTEGER,
+	    foreign key (director_id) references directors(director_id)
+	);
+2025-01-22 11:39:43.179 CET [21240] ERROR:  relation "films_dk" does not exist at character 13
+2025-01-22 11:39:43.179 CET [21240] STATEMENT:  INSERT INTO films_dk (title, genre, release_year, score, director_id) VALUES
+	('The Phantom Realm', 'Action', 2022, 87, 1),
+	('Echoes of Tomorrow', 'Sci-Fi', 2021, 91, 1),
+	('Lost in Shadows', 'Drama', 2020, 82, 2),
+	('City of Dreams', 'Romance', 2019, 78, 2),
+	('A Silent Whisper', 'Thriller', 2023, 85, 3),
+	('Sunset Boulevard', 'Mystery', 2022, 88, 3),
+	('Into the Abyss', 'Action', 2021, 79, 1),
+	('A Dance of Fire', 'Fantasy', 2020, 80, 2),
+	('Beyond the Horizon', 'Adventure', 2023, 90, 1),
+	('The Last Stand', 'War', 2022, 84, 3);
+2025-01-22 11:39:43.215 CET [21240] ERROR:  relation "films_dk" does not exist at character 44
+2025-01-22 11:39:43.215 CET [21240] STATEMENT:  select films_dk.title, directors.name from films_dk inner join directors on films_dk.director_id=directors.director_id;
+2025-01-22 11:40:31.603 CET [21740] LOG:  received fast shutdown request
+2025-01-22 11:40:31.604 CET [11408] ERROR:  canceling statement due to user request
+2025-01-22 11:40:31.607 CET [21740] LOG:  aborting any active transactions
+2025-01-22 11:40:31.618 CET [21740] LOG:  background worker "logical replication launcher" (PID 11408) exited with exit code 1
+2025-01-22 11:40:31.630 CET [8640] LOG:  shutting down
+2025-01-22 11:40:31.633 CET [8640] LOG:  checkpoint starting: shutdown immediate
+2025-01-22 11:40:31.711 CET [8640] LOG:  checkpoint complete: wrote 57 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.011 s, sync=0.054 s, total=0.081 s; sync files=45, longest=0.003 s, average=0.002 s; distance=172 kB, estimate=172 kB; lsn=0/1A7F468, redo lsn=0/1A7F468
+2025-01-22 11:40:31.732 CET [21740] LOG:  database system is shut down
