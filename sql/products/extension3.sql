@@ -1,0 +1,1 @@
+SELECT name, COUNT(films.id) FROM directors LEFT JOIN films ON films.director_id = directors.id GROUP BY name
