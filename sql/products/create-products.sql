@@ -5,4 +5,3 @@ CREATE TABLE products(
  discount boolean,
  unique(name)
 )
-
