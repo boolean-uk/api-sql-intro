@@ -4,11 +4,12 @@
 
 --CREATE
 CREATE TABLE films(
-id integer primary key AUTOINCREMENT,
+id serial primary key,
 title varchar(255) not null,
 genre varchar(255) not null,
 releaseYear integer not null,
 rating integer,
+director integer
 )
 
 --INSERT
@@ -75,11 +76,48 @@ SELECT * from films WHERE title LIKE '%Matrix%';
 -- Exercise Extensions
 --
 
+--
 -- Extension 1
-
 --* Return the average film rating
-select AVG(rating) from films;
+SELECT AVG(rating) from films;
 --* Return the total number of films
-select count(*) from films;
+SELECT count(*) from films;
 --* Return the average film rating by genre
-select avg(rating), genre from films group by genre;
+SELECT avg(rating), genre from films group by genre;
+
+--
+-- Extension 2
+CREATE TABLE directors(
+id integer primary key autoincrement,
+name varchar(255),
+)
+
+insert into directors (name)
+values ('Steven Spielberg'), ('Christopher Nolan'), ('Quentin Tarantino');
+
+CREATE TABLE films(
+id SERIAL PRIMARY KEY ,
+title varchar(255) not null,
+genre varchar(255) not null,
+releaseYear integer not null,
+rating integer,
+director integer,
+foreign key (director) references directors(id)
+)
+
+--INSERT
+INSERT INTO films (title, genre, releaseYear, rating, director)
+VALUES ('The Shawshank Redemption', 'Drama', 1994, 9, 1),
+       ('The Godfather', 'Crime', 1972, 9, 2),
+       ('The Dark Knight', 'Action', 2008, 9, 2),
+       ('Alien', 'SciFi', 1979, 9, 3);
+
+--* Using and SQL JOIN, write a SELECT statement that returns a list of films with their director
+SELECT * from films join directors on directors.id = films.director;
+
+--
+-- Extension 3
+SELECT count(*), directors.name
+from films2
+join directors on directors.id = films2.director
+group by directors.name;
