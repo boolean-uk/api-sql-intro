@@ -1,8 +1,9 @@
-CREATE TABLE products(
- id serial primary key,
- name varchar(255) not null,
- price int not null,
- discount boolean,
- unique(name)
-)
 
+-- film table
+CREATE TABLE IF NOT EXISTS films (
+id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+title VARCHAR(128) NOT NULL UNIQUE,
+genre VARCHAR(64) NOT NULL,
+releaseYear integer NOT NULL,
+score integer NOT NULL
+);
