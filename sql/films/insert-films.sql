@@ -1,0 +1,14 @@
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Shawshank Redemption', 'Drama', 1994, 9.3, 1);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Godfather', 'Crime', 1972, 9, 2);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Dark Knight', 'Action', 2008, 9, 3);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('alien', 'Sci-Fi', 1979, 9, 4);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('Total Recall', 'Sci-Fi', 1990, 8, 5);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Matrix', 'Sci-Fi', 1999, 8, 6);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Matrix Resurrections', 'Sci-Fi', 2021, 5, 6);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Matrix Reloaded', 'Sci-Fi', 2003, 6, 6);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Hunt for Red October', 'Thriller', 1990, 7, 7);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('Misery', 'Thriller', 1990, 7, 8);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Power Of The Dog', 'Western', 2021, 6, 9);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('Hell or High Water', 'Western', 2016, 8, 10);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('The Good the Bad and the Ugly', 'Western', 1966, 9, 11);
+INSERT INTO films (title, genre, release_year, score, directorId) VALUES ('Unforgiven', 'Western', 1992, 7, 12);
